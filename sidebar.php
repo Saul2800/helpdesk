@@ -42,6 +42,10 @@ $allow_admin = false;
                         <a href="about.php"><i class="fa fa-child"></i> Sobre Mi</a>
                     </li>
 
+                    <li class="<?php if(isset($active9)){echo $active9;}?>">
+                        <a href=""><i class="fa fa-desktop"></i> Contacto</a>
+                    </li>
+
                 </ul>
             </div>
         </div><!-- /sidebar menu -->
