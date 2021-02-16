@@ -11,9 +11,7 @@
                 <div class="row">
             	    <div class="col-md-6 col-md-offset-3">
                         <h1>Acerca del autor</h1>
-                        <p>Hola, soy <strong><a target="_blank" href="http://github.com/amnersaucedososa">Amner Saucedo Sosa</a></strong> (Abizoft) creador de <a>ticketly</a>.</p>
-
-                        <br><br>
+                        <p>Hola, soy <strong><a target="_blank" href=""></a></strong> (Abizoft) creador de <a>ticketly</a>.</p>
 
                         <h2>TICKETLY - <small>Sistema de Tickets de Soporte</small></h2>
                         <p>TICKETLY es un sistema de Tickets de soporte de proposito general, codigo abierto y gratis.</p>
@@ -22,9 +20,6 @@
                         <h3>Descripcion</h3>
                         <p>Ticketly es un sistema para gestionar tickets de soporte usando proyectos, categorias, prioridades y mas, ideal para todo tipo de negocios, desarrollo de proyectos, gestion personal, etc, el sistema esta desarrollado con PHP y MySQL.</p>
                         <p>TICKETLY es un sistema de tickets de soporte en el que puedes rellenar tu perfil, agregar ticket, proyectos y categorias, generar reportes y mucho mas.</p>
-
-                        <h3>Dedicatoria</h3>
-                        <p>Este sistema se lo dedico a mi madre por que desde que empece en el mundo de las computadoras ella me dio su apoyo emocional y economico, me compro computadoras, me pagaron mis estudios, estoy muy agradecido con ella, la amo.</p>
 
                         <h3>Modulos</h3>
                         <p>Defino a grandes rasgos los modulos generales del sistema</p>
