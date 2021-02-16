@@ -1,3 +1,16 @@
+<<?php
+//security options
+//admin
+echo $kind;
+if($kind==1){
+$allow_admin = true;        
+}
+//user
+else{
+$allow_admin = false; 
+}
+ ?>
+
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu"><!-- sidebar menu -->
             <div class="menu_section">
                 <ul class="nav side-menu">
@@ -8,7 +21,7 @@
                     <li class="<?php if(isset($active2)){echo $active2;}?>">
                         <a href="tickets.php"><i class="fa fa-ticket"></i> Tickets</a>
                     </li>
-
+<?php if($allow_admin): ?>
                     <li class="<?php if(isset($active3)){echo $active3;}?>">
                         <a href="projects.php"><i class="fa fa-list-alt"></i> Proyectos</a>
                     </li>
@@ -24,9 +37,13 @@
                     <li class="<?php if(isset($active6)){echo $active6;}?>">
                         <a href="users.php"><i class="fa fa-users"></i> Usuarios</a>
                     </li>
-
+<?php endif; ?>
                     <li class="<?php if(isset($active8)){echo $active8;}?>">
                         <a href="about.php"><i class="fa fa-child"></i> Sobre Mi</a>
+                    </li>
+
+                    <li class="<?php if(isset($active9)){echo $active9;}?>">
+                        <a href=""><i class="fa fa-desktop"></i> Contacto</a>
                     </li>
 
                 </ul>

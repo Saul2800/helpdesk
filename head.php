@@ -13,6 +13,7 @@
         $name = $row['name'];
         $email = $row['email'];
         $profile_pic = $row['profile_pic'];
+        $kind = $row['kind'];
         $created_at = $row['created_at'];
   
     }
