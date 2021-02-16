@@ -26,7 +26,7 @@
                     </li>
 
                     <li class="<?php if(isset($active8)){echo $active8;}?>">
-                        <a href="about.php"><i class="fa fa-child"></i> Sobre Mi</a>
+                        <a href="about.php"><i class="fa fa-child"></i> Ayuda</a>
                     </li>
 
                 </ul>
