@@ -1,7 +1,7 @@
-<<?php
+<?php
 //security options
 //admin
-echo $kind;
+$kind;
 if($kind==1){
 $allow_admin = true;        
 }
