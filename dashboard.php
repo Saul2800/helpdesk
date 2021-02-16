@@ -52,8 +52,8 @@
                             <form method="post" id="formulario" enctype="multipart/form-data">
                             Cambiar Imagen de perfil: <input type="file" name="file">
                             </form>
-                        </span>
-                        <div id="respuesta"></div>
+                        </span> 
+                        <div  id="respuesta"></div>
                     </div>
                     <div class="col-md-8 col-xs-12 col-sm-12">
                         <?php include "lib/alerts.php";

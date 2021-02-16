@@ -1,6 +1,4 @@
 <?php
-
-//upload file by abisoft https://github.com/amnersaucedososa 
 include "../config/config.php";
 
 if (isset($_FILES["file"]))
@@ -27,10 +25,7 @@ if (isset($_FILES["file"]))
 
        $query=mysqli_query($con, "UPDATE user set profile_pic=\"$name\"");
        if($query){
-        echo "<div class='alert alert-success' role='alert'>
-            <button type='button' class='close' data-dismiss='alert'>&times;</button>
-            <strong>¡Bien hecho!</strong> Perfil Actualizado Correctamente
-        </div>";
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=dashboard.php'>";
        }
     }
 }
