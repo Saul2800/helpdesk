@@ -10,6 +10,7 @@
             <br>
                 <div class="row">
             	    <div class="col-md-6 col-md-offset-3">
+                        <!-- Se comenta
                         <h1>Acerca del autor</h1>
                         <p>Hola, soy <strong><a target="_blank" href=""></a></strong> (Abizoft) creador de <a>ticketly</a>.</p>
 
@@ -41,6 +42,7 @@
 
 
                         <h1 style="text-align: center;"><a href="http://github.com/amnersaucedososa" target="_blank">ABISOFT</a></h1>
+                        -->
                     </div>
                 </div>
             </div>

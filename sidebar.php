@@ -30,20 +30,20 @@ $allow_admin = false;
                         <a href="categories.php"><i class="fa fa-align-left"></i> Categorias</a>
                     </li>
 
-                    <li class="<?php if(isset($active5)){echo $active5;}?>">
-                        <a href="reports.php"><i class="fa fa-area-chart"></i> Reportes</a>
-                    </li>
-
                     <li class="<?php if(isset($active6)){echo $active6;}?>">
                         <a href="users.php"><i class="fa fa-users"></i> Usuarios</a>
                     </li>
 <?php endif; ?>
+                    <li class="<?php if(isset($active5)){echo $active5;}?>">
+                        <a href="reports.php"><i class="fa fa-area-chart"></i> Reportes</a>
+                    </li>
+
                     <li class="<?php if(isset($active8)){echo $active8;}?>">
                         <a href="about.php"><i class="fa fa-child"></i> Ayuda</a>
                     </li>
 
                     <li class="<?php if(isset($active9)){echo $active9;}?>">
-                        <a href=""><i class="fa fa-desktop"></i> Contacto</a>
+                        <a href="comments.php"><i class="fa fa-desktop"></i> Contacto</a>
                     </li>
 
                 </ul>
