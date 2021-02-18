@@ -10,18 +10,18 @@
             <br>
                 <div class="row">
             	    <div class="col-md-6 col-md-offset-3">
-                        <h1>Acerca del autor</h1>
+                        <h1 style="text-align:center">Acerca de HelpDesk</h1>
                         <p>Hola, soy <strong><a target="_blank" href=""></a></strong> (Abizoft) creador de <a>ticketly</a>.</p>
 
                         <h2>TICKETLY - <small>Sistema de Tickets de Soporte</small></h2>
-                        <p>TICKETLY es un sistema de Tickets de soporte de proposito general, codigo abierto y gratis.</p>
+                        <p style="text-align:justify">TICKETLY es un sistema de Tickets de soporte de proposito general, codigo abierto y gratis.</p>
 
-                        <h1 style="text-align: center;">TICKETLY</h1>
-                        <h3>Descripcion</h3>
-                        <p>Ticketly es un sistema para gestionar tickets de soporte usando proyectos, categorias, prioridades y mas, ideal para todo tipo de negocios, desarrollo de proyectos, gestion personal, etc, el sistema esta desarrollado con PHP y MySQL.</p>
-                        <p>TICKETLY es un sistema de tickets de soporte en el que puedes rellenar tu perfil, agregar ticket, proyectos y categorias, generar reportes y mucho mas.</p>
+                        <h1 style="text-align: center; padding:16px;">TICKETLY</h1>
+                        <h3 style="text-align:center">Descripcion</h3>
+                        <p style="text-align:justify">Ticketly es un sistema para gestionar tickets de soporte usando proyectos, categorias, prioridades y mas, ideal para todo tipo de negocios, desarrollo de proyectos, gestion personal, etc, el sistema esta desarrollado con PHP y MySQL.</p>
+                        <p style="text-align:justify">TICKETLY es un sistema de tickets de soporte en el que puedes rellenar tu perfil, agregar ticket, proyectos y categorias, generar reportes y mucho mas.</p>
 
-                        <h3>Modulos</h3>
+                        <h3 style="text-align:center; padding:16px;">Modulos</h3>
                         <p>Defino a grandes rasgos los modulos generales del sistema</p>
                         <ul>
                         <li><b>Usuarios</b>: Se puede agregar editar y eliminar usuarios.</li>
