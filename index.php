@@ -64,8 +64,8 @@
                                 <div class="clearfix"></div>
                                 <br />
                                 <div>
-                                    <h1><i class="fa fa-ticket"></i> Ticketly!</h1>
-                                    <p> <a style="text-decoration: underline;" target="_blank" href="http://github.com/amnersaucedososa">Support</a>Aviso de privacidad <a target="_blank" style="text-decoration: underline;" href="https://www.kaabcode.com/">Kaab Code</a></p>
+                                    <h1><i class="fa fa-ticket"></i> HELPDESKJEE</h1>
+                                    <p> <a style="text-decoration: underline;" target="_blank" href="">Aviso de privacidad</a></p>
                                 </div>
                             </div>
                         </form>

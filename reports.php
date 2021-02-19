@@ -88,7 +88,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <button class="btn btn-primary btn-block">Procesar</button>
+                                    <button class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Buscar información en tickets">&nbsp;&nbsp;Buscar&nbsp;&nbsp;</button>
+                                    <button class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Descargar reportes de tickets">Descargar</button>
                                 </div>
                             </div>
                         </form>

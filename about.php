@@ -41,6 +41,7 @@
 
 
                         <h1 style="text-align: center;"><a href="http://github.com/amnersaucedososa" target="_blank">ABISOFT</a></h1>
+                        -->
                     </div>
                 </div>
             </div>
