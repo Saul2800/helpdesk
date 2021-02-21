@@ -68,6 +68,7 @@
                         <th class="column-title">Nombre </th>
                         <th class="column-title">Correo Electrónico </th>
                         <th class="column-title">Estado </th>
+                        <th class="column-title">Tipo de Usuario</th>
                         <th class="column-title">Fecha </th>
                         <th class="column-title no-link last"><span class="nobr"></span></th>
                     </tr>
@@ -81,16 +82,29 @@
 
                             $name=$r['name'];
                             $email=$r['email'];
+                            /*Inicia: Se recupera la información del tipo de Usuario: JLCI 20/02/2020*/ 
+                            $kind=$r['kind'];
+                                if ($kind==1){
+                                    $kind_f="Administrador";
+                                }else if($kind==2){
+                                    $kind_f="Usuario";
+                                }else if($kind==3){
+                                    $kind_f="Proveedor";
+                                }else if($kind==4){
+                                    $kind_f="MonitorTI";
+                                }
+                            /*Termina: Se recupera la información del tipo de Usuario: JLCI 20/02/2020*/ 
                             $created_at=date('d/m/Y', strtotime($r['created_at']));
                 ?>
                     <input type="hidden" value="<?php echo $name;?>" id="name<?php echo $id;?>">
                     <input type="hidden" value="<?php echo $email;?>" id="email<?php echo $id;?>">
                      <input type="hidden" value="<?php echo $status;?>" id="status<?php echo $id;?>">
-
+                     <input type="hidden" value="<?php echo $kind;?>" id="kinduser<?php echo $id;?>">          
                     <tr class="even pointer">
                         <td><?php echo $name;?></td>
                         <td><?php echo $email;?></td>
                         <td ><?php echo $status_f; ?></td>
+                        <td ><?php echo $kind_f;?></td>
                         <td><?php echo $created_at;?></td>
                         <td ><span class="pull-right">
                         <a href="#" class='btn btn-default' title='Editar producto' onclick="obtener_datos('<?php echo $id;?>');" data-toggle="modal" data-target=".bs-example-modal-lg-upd"><i class="glyphicon glyphicon-edit"></i></a> 

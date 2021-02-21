@@ -7,14 +7,17 @@
 			$errors[] = "Apellidos vacío";
 		}else if (empty($_POST['email'])){
 			$errors[] = "Correo Vacio vacío";
+		} else if ($_POST['kinduser']==""){
+			$errors[] = "Selecciona el tipo de usuario";
 		} else if ($_POST['status']==""){
 			$errors[] = "Selecciona el estado";
 		} else if (empty($_POST['password'])){
-			$errors[] = "Contraseña vacío";
+			$errors[] = "Contraseña vacía";
 		} else if (
 			!empty($_POST['name']) &&
 			!empty($_POST['lastname']) &&
 			$_POST['status']!="" &&
+			$_POST['kinduser']!="" &&
 			!empty($_POST['password'])
 		){
 
@@ -30,16 +33,19 @@
 		$created_at=date("Y-m-d H:i:s");
 		$user_id=$_SESSION['user_id'];
 		$profile_pic="default.png";
+		/*Inicio: Se recupera la información del tipo JLCI 20/02/2021*/
+		$kinduser=intval($_POST['kinduser']);
+		/*Termina: Se recupera la información del tipo JLCI 20/02/2021*/
 
 		$is_admin=0;
 		if(isset($_POST["is_admin"])){$is_admin=1;}
 
-			$sql="INSERT INTO user ( name, password, email, profile_pic, is_active, created_at) VALUES ('$end_name','$password','$email','$profile_pic',$status,'$created_at')";
+			$sql="INSERT INTO user ( name, password, email, profile_pic, is_active, kind, created_at) VALUES ('$end_name','$password','$email','$profile_pic',$status,$kinduser,'$created_at')";
 			$query_new_insert = mysqli_query($con,$sql);
 				if ($query_new_insert){
 					$messages[] = "El usuario ha sido ingresado satisfactoriamente.";
 				} else{
-					$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
+					$errors []= "Lo siento algo ha salido mal en la bd intenta nuevamente.".mysqli_error($con);
 				}
 			
 		}else{

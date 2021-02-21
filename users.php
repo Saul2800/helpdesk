@@ -100,14 +100,17 @@ $( "#upd_user" ).submit(function( event ) {
     });
   event.preventDefault();
 })
-
+/*Función que obtiene los datos desde la tabla de consulta
+Siempre hay que agregar el campo aquí. */
     function obtener_datos(id){
             var name = $("#name"+id).val();
             var email = $("#email"+id).val();
             var status = $("#status"+id).val();
+            var kind = $("#kinduser"+id).val(); //JLCI 20/02/2021
             $("#mod_id").val(id);
             $("#mod_name").val(name);
             $("#mod_email").val(email);
             $("#mod_status").val(status);
+            $("#mod_kinduser").val(kind); //JLCI 20/02/2021
         }
 </script>

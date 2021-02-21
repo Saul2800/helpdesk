@@ -12,7 +12,8 @@
 		}else if (
 			!empty($_POST['mod_name']) &&
 			!empty($_POST['mod_email']) &&
-			$_POST['mod_status']!=""
+			$_POST['mod_status']!="" &&
+			$_POST['mod_kinduser']!="" 
 		){
 
 		include "../config/config.php";//Contiene funcion que conecta a la base de datos
@@ -22,8 +23,11 @@
 		$password=mysqli_real_escape_string($con,(strip_tags(sha1(md5($_POST["password"])),ENT_QUOTES)));
 		$status=intval($_POST['mod_status']);
 		$id=$_POST['mod_id'];
+		/*Inicio: Se recupera la información del tipo JLCI 20/02/2021*/
+		$kinduser=intval($_POST['mod_kinduser']);
+		/*Termina: Se recupera la información del tipo JLCI 20/02/2021*/
 
-		$sql="UPDATE user SET name=\"$name\", email=\"$email\",is_active=$status  WHERE id=$id";
+		$sql="UPDATE user SET name=\"$name\", email=\"$email\",is_active=$status,kind=$kinduser  WHERE id=$id";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
 				$messages[] = "Datos actualizados satisfactoriamente.";

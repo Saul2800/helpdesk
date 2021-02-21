@@ -5,7 +5,7 @@ $kind;
 if($kind==1){
 $allow_admin = true;        
 }
-//user
+//user//monitorTI//Proveedor
 else{
 $allow_admin = false; 
 }

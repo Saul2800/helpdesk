@@ -91,6 +91,7 @@
                                     <button class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Buscar información en tickets">&nbsp;&nbsp;Buscar&nbsp;&nbsp;</button>
                                     <button class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Descargar reportes de tickets">Descargar</button>
                                 </div>
+
                             </div>
                         </form>
                         <!-- end form search -->

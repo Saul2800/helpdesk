@@ -13,7 +13,7 @@
                     <form class="form-horizontal form-label-left input_mask" id="add_user" name="add_user">
                         <div id="result_user"></div>
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input name="name" required type="text" class="form-control" placeholder="Nombre">
+                                <input name="name" required type="text" class="form-control" placeholder="Nombres">
                                 <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -31,6 +31,17 @@
                                     <option value="0" >Inactivo</option>  
                             </select>
                         </div>
+                        <!-- Inicia: Se añade nuevo campo para guardar el tipo de usuario JLCI 20/02/2021-->
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                            <select class="form-control" required name="kinduser">
+                                    <option value="" selected>--Tipo Usuario--</option>
+                                    <option value="1" >Administrador</option>
+                                    <option value="2" >Usuario</option>
+                                    <option value="3" >Proveedor</option>  
+                                    <option value="4" >MonitorTI</option>  
+                            </select>
+                        </div>
+                        <!-- Termina: Se añade nuevo campo para guardar el tipo de usuario JLCI 20/02/2021-->
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Contraseña<span class="required">*</span>
                             </label>
