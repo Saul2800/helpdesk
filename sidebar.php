@@ -23,7 +23,7 @@ $allow_admin = false;
                     </li>
 <?php if($allow_admin): ?>
                     <li class="<?php if(isset($active3)){echo $active3;}?>">
-                        <a href="projects.php"><i class="fa fa-list-alt"></i> Proyectos</a>
+                        <a href="projects.php"><i class="fa fa-list-alt"></i> Procesos Electorales</a>
                     </li>
 
                     <li class="<?php if(isset($active4)){echo $active4;}?>">
