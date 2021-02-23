@@ -4,11 +4,23 @@
     $statuses =mysqli_query($con, "select * from status");
     $kinds =mysqli_query($con, "select * from kind");
     $categories =mysqli_query($con, "select * from category");
+
+$kind;    
+//monitorTI//Proveedor
+if($kind == 3 || $kind == 4){
+    $allow_extern = false;      
+}
+
+else{
+    $allow_extern = true;
+}
 ?>
 
+<?php if($allow_extern): ?>
     <div> <!-- Modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-add"><i class="fa fa-plus-circle"></i> Agregar Ticket</button>
     </div>
+<?php endif; ?>
     <div class="modal fade bs-example-modal-lg-add" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
