@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    include "config/config.php";
+    if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
+        header("location: index.php");
+    }
+?>
+
+<?php
 //security options
 //admin
 $kind;
