@@ -1,0 +1,13 @@
+.botonDescargar{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #da7c1a;
+    border-radius: 6px;
+    border: #da7c1a;
+    position: absolute;
+    width: 110px;
+    text-align: center;
+}
