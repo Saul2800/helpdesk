@@ -59,7 +59,9 @@
                             </div>
                             <div>
                                 <button type="submit" name="token" value="Login" class="btn btn-default">Iniciar Sesion</button>
-                                <a class="reset_pass" href="#">Olvidaste Tu contraseña?</a>
+                    <?php
+                        include("modal/forget_password.php");
+                    ?>
                             </div>
                             <div class="clearfix"></div>
                             <div class="separator">
@@ -76,4 +78,8 @@
             </div>
         </div>
     </body>
+    <?php include "footer.php" ?>
+    <script src="~/Scripts/jquery-2.2.1.min.js"></script>    
+<script src="~/Scripts/bootstrap.min.js"></script>
+
 </html>
