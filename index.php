@@ -31,6 +31,8 @@
 
         <!-- Custom Theme Style -->
         <link href="css/custom.min.css" rel="stylesheet">
+        <!-- Se importan los css personalizados -->
+        <link href="css/estilosnuevos.css" rel="stylesheet">
 
     </head>
     <body class="login">

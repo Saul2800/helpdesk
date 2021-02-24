@@ -55,6 +55,8 @@
 
         <!-- MICSS button[type="file"] -->
         <link rel="stylesheet" href="css/micss.css">
+        <!-- Se importan los css personalizados -->
+        <link href="css/estilosnuevos.css" rel="stylesheet">
 
     </head>
 

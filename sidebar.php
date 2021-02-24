@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    include "config/config.php";
+    //session_start(); No es necesario volver a cargar, ya que el index lo carga al ingresar.
+    //include "config/config.php";
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
         header("location: index.php");
     }
