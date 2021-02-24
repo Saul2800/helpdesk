@@ -2,6 +2,7 @@
     session_start();
 
     include "config/config.php";
+    include "footer.php";
 
     if (isset($_SESSION['user_id']) && $_SESSION!==null) {
        header("location: dashboard.php");
@@ -57,7 +58,9 @@
                             </div>
                             <div>
                                 <button type="submit" name="token" value="Login" class="btn btn-default">Iniciar Sesion</button>
-                                <a class="reset_pass" href="#">Olvidaste Tu contraseña?</a>
+                    <?php
+                        include("modal/forget_password.php");
+                    ?>
                             </div>
                             <div class="clearfix"></div>
                             <div class="separator">
