@@ -1,6 +1,4 @@
 <div> <!-- Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-add"><i></i>Recuperar Password</button>
-    </div>
     <div class="modal fade bs-example-modal-lg-add" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -8,7 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">Recuperar Password</h4>
-                    <h6>Se enviara un correo al administrador para que pueda recuperar su password</h6>
+                    <h6>Se enviará un correo al administrador <br>para que pueda recuperar su contraseña</h6>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal form-label-left input_mask" id="add_user" name="add_user">
@@ -29,7 +27,7 @@
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-2">
                               <button id="save_data" type="submit" class="btn btn-success">Enviar</button>
-                              <h6>Revise su correo mas tarde</h6>
+                              <h6>Revise su correo después de enviar la solicitud,<br>el administrador se contactará para resolver el problema,<br> disculpe las molestias.</h6>
                             </div>
                         </div>
                     </form>
