@@ -2,7 +2,6 @@
     session_start();
 
     include "config/config.php";
-    include "footer.php";
 
     if (isset($_SESSION['user_id']) && $_SESSION!==null) {
        header("location: dashboard.php");
@@ -79,4 +78,8 @@
             </div>
         </div>
     </body>
+    <?php include "footer.php" ?>
+    <script src="~/Scripts/jquery-2.2.1.min.js"></script>    
+<script src="~/Scripts/bootstrap.min.js"></script>
+
 </html>
