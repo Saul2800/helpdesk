@@ -1,4 +1,5 @@
 <?php
+/*Inicio: José Luis Caamal Ic, se usa para crear el reporte, se puede adaptar a cualquier reporte 24/02/2021*/
     $id="";
     session_start();
     include "config/config.php";
@@ -7,6 +8,7 @@
     }
     else{
         $id=$_SESSION['user_id'];
+        $kind=$_SESSION['user_kind'];
     }
     require('lib/fpdf/WriteHTML.php'); //Para usar el writeHTML
 ?>
@@ -42,12 +44,13 @@ function Footer()
     // Arial italic 8
     $this->SetFont('Arial','I',8);
     // Observaciones
-    $this->Cell(0,10,'Observaciones: ',0,0);
+    $this->Cell(0,10,'Reporte de Tickets',0,0);
     // Número de página
     $this->Cell(0,10,'Pag.: '.$this->PageNo().'/{nb}',0,0,'R');
 
 }
 }
+/*Ejemplo básico*/
 /*$pdf=new PDF_HTML();
 $pdf->AddPage();
 $pdf->SetFont('Arial');
@@ -56,43 +59,78 @@ $pdf->Output();
 */
 //$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
 //$query = "SELECT id, title, description, created_at FROM ticket";
-$query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
-st.name as status, created_at, updated_at FROM ticket tk
-LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
-LEFT JOIN category cat ON tk.category_id = cat.id
-LEFT JOIN priority prt ON tk.priority_id = prt.id
-LEFT JOIN status st ON tk.status_id = st.id";
-
+if($kind == 1){ //ADMINISTRADOR VE TODO
+    $query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
+    st.name as status, created_at, updated_at FROM ticket tk
+    LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
+    LEFT JOIN category cat ON tk.category_id = cat.id
+    LEFT JOIN priority prt ON tk.priority_id = prt.id
+    LEFT JOIN status st ON tk.status_id = st.id";
+    //var_dump($query);
+}else if($kind == 2){ //Si es tipo usuario, solo muestra los tickets que el usuario creo
+    $query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
+    st.name as status, created_at, updated_at FROM ticket tk
+    LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
+    LEFT JOIN category cat ON tk.category_id = cat.id
+    LEFT JOIN priority prt ON tk.priority_id = prt.id
+    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.kind_id =".$kind." AND tk.user_id =".$id;
+    //var_dump($query);
+}else if($kind == 3){//Si es tipo proveedor, muestra todos los tickets
+    $query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
+    st.name as status, created_at, updated_at FROM ticket tk
+    LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
+    LEFT JOIN category cat ON tk.category_id = cat.id
+    LEFT JOIN priority prt ON tk.priority_id = prt.id
+    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.kind_id =".$kind;
+    //var_dump($query);
+}else if($kind == 4){//Si es tipo monitorETI, muestra todos los tickets
+    $query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
+    st.name as status, created_at, updated_at FROM ticket tk
+    LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
+    LEFT JOIN category cat ON tk.category_id = cat.id
+    LEFT JOIN priority prt ON tk.priority_id = prt.id
+    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.kind_id =".$kind;
+    //var_dump($query);
+}
 $resultado = mysqli_query($con,$query);
 
-$pdf = new PDF();
+$pdf = new PDF('P');
+//SIN MARGEN
+//$pdf = new PDF('P'); //Vertical
+//$pdf = new PDF('L'); //Horizontal
+//CON MARGEN
+//$pdf=new PDF('P', 'mm', 'A4');  Vertical
+//$pdf=new PDF('L','mm','A4'); Horizontal
 $pdf->AliasNbPages();
 $pdf->AddPage();
 
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B',6);
-$pdf->Cell(20,6,'title',1,0,'C',1);
-$pdf->Cell(20,6,'project',1,0,'C',1);
-$pdf->Cell(20,6,utf8_decode('tipo'),1,0,'C',1);
-$pdf->Cell(30,6,'categoria',1,0,'C',1);
-$pdf->Cell(20,6,'priority',1,0,'C',1);
-$pdf->Cell(20,6,'status',1,0,'C',1);
-$pdf->Cell(30,6,'create',1,0,'C',1);
-$pdf->Cell(30,6,'update',1,1,'C',1);
+//$pdf->Cell(20,6,'id',1,0,'C',1);
+$pdf->Cell(20,6,utf8_decode('Título'),1,0,'C',1);
+$pdf->Cell(20,6,'ProcesoE',1,0,'C',1);
+$pdf->Cell(20,6,utf8_decode('Tipo'),1,0,'C',1);
+$pdf->Cell(30,6,'Categoria',1,0,'C',1);
+$pdf->Cell(20,6,'Prioridad',1,0,'C',1);
+$pdf->Cell(20,6,'Estatus',1,0,'C',1);
+$pdf->Cell(30,6,'Fecha',1,0,'C',1);
+$pdf->Cell(30,6,utf8_decode('Actualización'),1,1,'C',1);
 
 $pdf->SetFont('Arial','',10);
-
 while($row = $resultado->fetch_assoc())
 {
-    $pdf->SetFont('Arial','B',6);
-    $pdf->Cell(20,6,$row['title'],1,0,'C');
-    $pdf->Cell(20,6,utf8_decode($row['project']),1,0,'C');
-    $pdf->Cell(20,6,utf8_decode($row['tipo']),1,0,'C');
-    $pdf->Cell(30,6,utf8_decode($row['categoria']),1,0,'C');
-    $pdf->Cell(20,6,utf8_decode($row['priority']),1,0,'C');
-    $pdf->Cell(20,6,utf8_decode($row['status']),1,0,'C');
-    $pdf->Cell(30,6,utf8_decode($row['created_at']),1,0,'C');
-    $pdf->Cell(30,6,utf8_decode($row['updated_at']),1,1,'C');
+        $pdf->SetFont('Arial','B',6);
+    
+        //$pdf->Cell(20,6,utf8_decode($kind),1,0,'C');
+        $pdf->Cell(20,6,utf8_decode($row['title']),1,0,'C');
+        $pdf->Cell(20,6,utf8_decode($row['project']),1,0,'C');
+        $pdf->Cell(20,6,utf8_decode($row['tipo']),1,0,'C');
+        $pdf->Cell(30,6,utf8_decode($row['categoria']),1,0,'C');
+        $pdf->Cell(20,6,utf8_decode($row['priority']),1,0,'C');
+        $pdf->Cell(20,6,utf8_decode($row['status']),1,0,'C');
+        $pdf->Cell(30,6,utf8_decode($row['created_at']),1,0,'C');
+        $pdf->Cell(30,6,utf8_decode($row['updated_at']),1,1,'C');
 }
+
 $pdf->Output();
 ?> 
