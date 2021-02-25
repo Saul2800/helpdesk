@@ -14,7 +14,7 @@
 $tipo = isset($_REQUEST['t']);
 $title ="Imprimir Reporte | ";
 $users= array();
-$users = mysqli_query($con, "select * from ticket order by created_at desc");
+//$users = mysqli_query($con, "select * from ticket order by created_at desc");
 
 /*Inicia la clase del reporte: Jose Luis Caamal Ic 23/02/2020*/
 class PDF extends FPDF
@@ -54,6 +54,45 @@ $pdf->SetFont('Arial');
 $pdf->WriteHTML('');
 $pdf->Output();
 */
-$hola=file_get_contents('http://localhost/xampp/HelpDesk2021/reports.php');
-echo $hola;
+//$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
+//$query = "SELECT id, title, description, created_at FROM ticket";
+$query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
+st.name as status, created_at, updated_at FROM ticket tk
+LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
+LEFT JOIN category cat ON tk.category_id = cat.id
+LEFT JOIN priority prt ON tk.priority_id = prt.id
+LEFT JOIN status st ON tk.status_id = st.id";
+
+$resultado = mysqli_query($con,$query);
+
+$pdf = new PDF();
+$pdf->AliasNbPages();
+$pdf->AddPage();
+
+$pdf->SetFillColor(232,232,232);
+$pdf->SetFont('Arial','B',6);
+$pdf->Cell(20,6,'title',1,0,'C',1);
+$pdf->Cell(20,6,'project',1,0,'C',1);
+$pdf->Cell(20,6,utf8_decode('tipo'),1,0,'C',1);
+$pdf->Cell(30,6,'categoria',1,0,'C',1);
+$pdf->Cell(20,6,'priority',1,0,'C',1);
+$pdf->Cell(20,6,'status',1,0,'C',1);
+$pdf->Cell(30,6,'create',1,0,'C',1);
+$pdf->Cell(30,6,'update',1,1,'C',1);
+
+$pdf->SetFont('Arial','',10);
+
+while($row = $resultado->fetch_assoc())
+{
+    $pdf->SetFont('Arial','B',6);
+    $pdf->Cell(20,6,$row['title'],1,0,'C');
+    $pdf->Cell(20,6,utf8_decode($row['project']),1,0,'C');
+    $pdf->Cell(20,6,utf8_decode($row['tipo']),1,0,'C');
+    $pdf->Cell(30,6,utf8_decode($row['categoria']),1,0,'C');
+    $pdf->Cell(20,6,utf8_decode($row['priority']),1,0,'C');
+    $pdf->Cell(20,6,utf8_decode($row['status']),1,0,'C');
+    $pdf->Cell(30,6,utf8_decode($row['created_at']),1,0,'C');
+    $pdf->Cell(30,6,utf8_decode($row['updated_at']),1,1,'C');
+}
+$pdf->Output();
 ?> 
