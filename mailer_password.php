@@ -1,30 +1,58 @@
 <?php
-//insertar aqui el correo
-$destino= "algo@algo.com";
-$contenido= "HelpDeskJEE"."\nSoy: ".$nombre . "\nY olvide mi Password" . "\nQuiciera recuperarlo" . "\nAl correo: " . $correo;
+//mailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'lib/mailer/Exception.php';
+require 'lib/mailer/PHPMailer.php';
+require 'lib/mailer/SMTP.php';
+
+//Create a new PHPMailer instance
+$mail = new PHPMailer();
+$mail->IsSMTP();
 $nombre = $correo = "";
 $nombre_err = $correo_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Check if nombre is empty
+
+// Check if nombre is empty
     if(empty(trim($_POST["nombre"]))){
         $nombre_err = "Por favor ingrese su nombre ";
-    } else{
-        $nombre = trim($_POST["nombre"]);
     }
 
     // Check if correo is empty
     if(empty(trim($_POST["correo"]))){
         $correo_err = "Por favor ingrese su correo.";
-    } else{
-        $correo = trim($_POST["correo"]);
-    }
+    } 
 
     // Validate credentials
-    if(empty($nombre_err) && empty($correo_err)){
-        //informacion para mandar el correo
+if(empty($nombre_err) && empty($correo_err)){
+$mail->From = $_POST['correo']; //remitente
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = 'tls'; //seguridad
+$mail->Host = "smtp.gmail.com"; // servidor smtp
+$mail->Port = 587; //puerto
+$mail->Username ='algo@gmail.com'; //nombre usuario
+$mail->Password = ''; //contraseña
+ 
+//Agregar destinatario
+$mail->AddAddress($_POST['correo']);
+$mail->Subject = "Password";
+$nombre=$_POST['nombre'];
+$mail->Body = "HelpDeskJEE"."\nSoy: ".$nombre . "\nY olvide mi Password" . "\nQuiciera recuperarlo" . "\nAl correo: " . $correo;
+ 
+//Avisar si fue enviado o no y dirigir al index
+if ($mail->Send()) {
+    echo'<script type="text/javascript">
+           alert("Enviado Correctamente");
+        </script>';
         $send=true;
-        $mail=@mail($destino,"PASSWORD",$contenido);
+} else {
+    $send=false;
+    echo'<script type="text/javascript">
+           alert("NO ENVIADO, intentar de nuevo");
+        </script>';
+}
     }
 }
 ?>
