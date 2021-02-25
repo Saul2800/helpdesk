@@ -60,7 +60,7 @@
                             <div>
                                 <button type="submit" name="token" value="Login" class="btn btn-default">Iniciar Sesion</button>
                             </div>
-                                <p> <a style="text-decoration: underline;" target="_blank" href="http://localhost/xampp/HelpDesk2021/modal/forget_password.php"><br>Olvidé mi Contraseña</a></p>
+                                <p> <a style="text-decoration: underline;" target="_blank" href="forget_password.php"><br>Olvidé mi Contraseña</a></p>
                             <div class="clearfix"></div>
                             <div class="separator">
                                 <div class="clearfix"></div>
