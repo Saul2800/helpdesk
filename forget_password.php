@@ -39,6 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="libraries/bootstrap4/bootstrap.min.css"> <!--libreria Para el cel-->
          <link rel="stylesheet" href="css/micss.css">
+         <link rel="stylesheet" href="css/our.css">
     </head>
     <body>
   <div class="wrapper fadeInDown">
