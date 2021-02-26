@@ -65,10 +65,11 @@
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
-                        <th class="column-title">Nombre </th>
-                        <th class="column-title">Correo Electrónico </th>
-                        <th class="column-title">Estado </th>
+                        <th class="column-title">Nombre Completo</th>
+                        <th class="column-title">Correo Electrónico</th>
+                        <th class="column-title">Estado</th>
                         <th class="column-title">Tipo de Usuario</th>
+                        <th class="column-title">Nombre de Usuario</th>
                         <th class="column-title">Fecha </th>
                         <th class="column-title no-link last"><span class="nobr"></span></th>
                     </tr>
@@ -94,17 +95,22 @@
                                     $kind_f="MonitorTI";
                                 }
                             /*Termina: Se recupera la información del tipo de Usuario: JLCI 20/02/2020*/ 
+                            /*Inicia: Se recupera la informació del nombre de usuario JLCI 20/02/2020*/
+                            $username=$r['username'];
+                            /*: Se recupera la informació del nombre de usuario JLCI 20/02/2020*/
                             $created_at=date('d/m/Y', strtotime($r['created_at']));
                 ?>
                     <input type="hidden" value="<?php echo $name;?>" id="name<?php echo $id;?>">
                     <input type="hidden" value="<?php echo $email;?>" id="email<?php echo $id;?>">
                      <input type="hidden" value="<?php echo $status;?>" id="status<?php echo $id;?>">
-                     <input type="hidden" value="<?php echo $kind;?>" id="kinduser<?php echo $id;?>">          
+                     <input type="hidden" value="<?php echo $kind;?>" id="kinduser<?php echo $id;?>">  
+                     <input type="hidden" value="<?php echo $username;?>" id="username<?php echo $id;?>">        
                     <tr class="even pointer">
                         <td><?php echo $name;?></td>
                         <td><?php echo $email;?></td>
                         <td ><?php echo $status_f; ?></td>
                         <td ><?php echo $kind_f;?></td>
+                        <td ><?php echo $username;?></td>
                         <td><?php echo $created_at;?></td>
                         <td ><span class="pull-right">
                         <a href="#" class='btn btn-default' title='Editar producto' onclick="obtener_datos('<?php echo $id;?>');" data-toggle="modal" data-target=".bs-example-modal-lg-upd"><i class="glyphicon glyphicon-edit"></i></a> 

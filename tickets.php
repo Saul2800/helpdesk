@@ -59,7 +59,7 @@
 <?php include "footer.php" ?>
 
 <script type="text/javascript" src="js/ticket.js"></script>
-<script type="text/javascript" src="js/VentanaCentrada.js"></script>
+<!--<script type="text/javascript" src="js/VentanaCentrada.js"></script>-->
 <script>
 $("#add").submit(function(event) {
   $('#save_data').attr("disabled", true);

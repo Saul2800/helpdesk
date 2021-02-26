@@ -107,10 +107,12 @@ Siempre hay que agregar el campo aquí. */
             var email = $("#email"+id).val();
             var status = $("#status"+id).val();
             var kind = $("#kinduser"+id).val(); //JLCI 20/02/2021
+            var username = $("#username"+id).val(); //JLCI 20/02/2021
             $("#mod_id").val(id);
             $("#mod_name").val(name);
             $("#mod_email").val(email);
             $("#mod_status").val(status);
             $("#mod_kinduser").val(kind); //JLCI 20/02/2021
+            $("#mod_username").val(username); //JLCI 20/02/2021
         }
 </script>
