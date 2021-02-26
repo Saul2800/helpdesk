@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($nombre_err) && empty($correo_err)){
         //informacion para mandar el correo
         $send=true;
-        $mail=@mail($destino,"PASSWORD",$contenido);
+        mail($destino,"PASSWORD",$contenido);
     }
 }
 ?>
