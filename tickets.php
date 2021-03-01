@@ -12,6 +12,7 @@
                     <?php
                         include("modal/new_ticket.php");
                         include("modal/upd_ticket.php");
+                        include("modal/cal_ticket.php");
                     ?>
                     <div class="x_panel">
                         <div class="x_title">
@@ -119,5 +120,46 @@ $( "#upd" ).submit(function( event ) {
             $("#mod_priority_id").val(priority_id);
             $("#mod_status_id").val(status_id);
         }
-
+/*Se obtienen los datos para continuar con el proceso de guardado: Según el id del ticke y usuario */
+function obtener_datos2(id){
+        var description = $("#description"+id).val();
+        var title = $("#title"+id).val();
+        var kind_id = $("#kind_id"+id).val();
+        var project_id = $("#project_id"+id).val();
+        var category_id = $("#category_id"+id).val();
+        var priority_id = $("#priority_id"+id).val();
+        var status_id = $("#status_id"+id).val();
+        //console.log(project_id);
+        var p = $("#mod_id2").val(id);
+        //console.log(p);
+        $("#mod_title2").val(title);
+        $("#mod_description2").val(description);
+        $("#mod_kind_id2").val(kind_id);
+        $("#mod_project_id2").val(project_id);
+        $("#mod_category_id2").val(category_id);
+        $("#mod_priority_id2").val(priority_id);
+        $("#mod_status_id2").val(status_id);
+}
+$("#add_cal").submit(function(event) {
+$('#save_cal').attr("disabled", true);
+  
+ var parametros = $(this).serialize();
+     $.ajax({
+            type: "POST",
+            url: "action/add_cal.php",
+            data: parametros,
+             beforeSend: function(objeto){
+                $("#resultados2").html("Mensaje: Cargando...");
+              },
+            success: function(datos){
+            $("#resultados2").html(datos);
+            $('#save_cal').attr("disabled", false);
+            load(1);
+          }
+    });
+  event.preventDefault();
+})
+function borrarDatosComment(){
+    location.reload(); //Borra los datos del modal y recarga la página JLCI 01/03/2021
+}
 </script>

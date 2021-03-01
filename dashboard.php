@@ -61,7 +61,7 @@
                         ?>    
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Informacion personal</h2>
+                                <h2>Información personal</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -81,10 +81,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo electronico 
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo electrónico 
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="last-name" name="email" class="form-control col-md-7 col-xs-12" value="<?php echo $email; ?>">
+                                            <input readonly type="text" id="last-name" name="email" class="form-control col-md-7 col-xs-12" value="<?php echo $email; ?>">
                                         </div>
                                     </div>
 
