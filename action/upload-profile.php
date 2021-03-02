@@ -1,4 +1,6 @@
 <?php
+session_start(); //Iniciamos la sesión actual
+$id_user = $_SESSION['user_id'];
 include "../config/config.php";
 
 if (isset($_FILES["file"]))
@@ -23,7 +25,9 @@ if (isset($_FILES["file"]))
         $src = $folder.$name;
        @move_uploaded_file($tmp_n, $src);
 
-       $query=mysqli_query($con, "UPDATE user set profile_pic=\"$name\"");
+       /*$query=mysqli_query($con, "UPDATE user set profile_pic=\"$name\"");*/
+       $query=mysqli_query($con, "UPDATE user set profile_pic=\"$name\" WHERE id = \"$id_user\"");
+       echo "Hola".$id_user."como estan xd";
        if($query){
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=dashboard.php'>";
        }
