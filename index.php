@@ -12,6 +12,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        
+    <link rel ="icon" type="icon/png" href="images/iconoPestaña.png" > <!--Icono de pestaña-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,7 +69,7 @@
                                 <br />
                                 <div>
                                     <h1><i class="fa fa-ticket"></i> HELPDESKJEE</h1>
-                                    <p> <a style="text-decoration: underline;" target="_blank" href="">Aviso de privacidad</a></p>
+                                    <p> <a style="text-decoration: underline;" target="_blank" href="legal.php">Aviso de privacidad</a></p>
                                 </div>
                             </div>
                         </form>
