@@ -76,8 +76,8 @@
             </div>
         </div>
     </body>
-    <?php include "footer.php" ?>
+    
     <script src="~/Scripts/jquery-2.2.1.min.js"></script>    
-<script src="~/Scripts/bootstrap.min.js"></script>
-
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <?php include "footer.php" ?>
 </html>

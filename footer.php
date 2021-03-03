@@ -1,11 +1,15 @@
  
-                <footer><!-- footer content -->
+               <!-- footer content -->
+               <!--Se deshabiltia el footer JLCI 02/03/2021-->
+               <!-- <footer>
+               
                     <div class="pull-right">
-                        <!--Consulta el aviso de privacidad en <a target="_blank" style="color: #0000ff" href="http://github.com/amnersaucedososa">Web Project Builder. </a>An online php code builder tool By <a style="color: #0000ff; text-decoration: underline;" target="_blank" href="http://github.com/amnersaucedososa">Abisoft</a>
-                        -->
+                        Consulta el aviso de privacidad en <a target="_blank" style="color: #0000ff" href="http://github.com/amnersaucedososa">Web Project Builder. </a>An online php code builder tool By <a style="color: #0000ff; text-decoration: underline;" target="_blank" href="http://github.com/amnersaucedososa">Abisoft</a>
+                        
                     </div>
                     <div class="clearfix"></div>
-                </footer><!-- /footer content -->
+                </footer> -->
+                <!-- /footer content -->
             </div>
         </div>
 
