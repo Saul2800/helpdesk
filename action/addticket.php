@@ -1,13 +1,29 @@
 <?php	
 	session_start();
 	/*Inicia validacion del lado del servidor*/
+	//SAR 4/03/21
 	if (empty($_POST['title'])) {
            $errors[] = "Titulo vacío";
         } else if (empty($_POST['description'])){
 			$errors[] = "Description vacío";
+		}else if (empty($_POST['category_id'])){
+			$errors[] = "categoria vacía";
+		}else if (empty($_POST['project_id'])){
+			$errors[] = "Proyecto vacío";
+		}else if (empty($_POST['priority_id'])){
+			$errors[] = "Prioridad vacía";
+		}else if (empty($_POST['status_id'])){
+			$errors[] = "Estatus vacío";
+		}else if (empty($_POST['kind_id'])){
+			$errors[] = "Tipo vacío";
 		} else if (
 			!empty($_POST['title']) &&
-			!empty($_POST['description'])
+			!empty($_POST['description']) &&
+			!empty($_POST['category_id']) &&
+			!empty($_POST['project_id'])  &&
+			!empty($_POST['priority_id']) &&
+			!empty($_POST['status_id'])   &&
+			!empty($_POST['kind_id'])
 		){
 
 
