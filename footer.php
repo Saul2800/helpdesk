@@ -55,7 +55,8 @@
         <!-- bootstrap-daterangepicker -->
         <script src="js/moment/min/moment.min.js"></script>
         <script src="css/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+        <script type="text/javascript">$("#division_proveedor").hide();</script>
+        <script type="text/javascript">$("#mod_kindProvedor").hide();</script>
 
     </body>
 </html>

@@ -28,7 +28,13 @@
 			$errors[] = "El correo y usuario ya existe, favor de validar con el administrador o ingresa otro correo.";
 		}else if ($_POST['mod_status']==""){
 			$errors[] = "Selecciona el estado";
-		}else if (
+		}
+//SAR 3/03/21
+		else if ($_POST['mod_kindProvedor']=="" && $_POST['mod_kinduser']=="3"){
+			$errors[] = "Selecciona el tipo de proveedor";
+		}
+//SAR 3/03/21
+		else if (
 			!empty($_POST['mod_name']) &&
 			!empty($_POST['mod_email']) &&
 			$_POST['mod_status']!="" &&
@@ -47,8 +53,13 @@
 		/*Inicio: Se recupera la información del username JLCI 26/02/2021*/
 		$username=$_POST['mod_username'];
 		/*Termina: Se recupera la información del username JLCI 26/02/2021*/
+//SAR 3/03/21
+		$telefono = $_POST['mod_TELEFONO'];
+		$DNI  = $_POST['mod_DNI'];
+		$KINDPROVEDOR=$_POST['mod_kindProvedor'];
+		if ($_POST['mod_kinduser']!="3"){$KINDPROVEDOR="";}
 
-		$sql="UPDATE user SET username=\"$username\", name=\"$name\", email=\"$email\",is_active=$status,kind=$kinduser  WHERE id=$id";
+		$sql="UPDATE user SET username=\"$username\", dni=\"$DNI\", name=\"$name\", phone=\"$telefono\", email=\"$email\",is_active=$status,kind=$kinduser, kind_proveedor=\"$KINDPROVEDOR\"  WHERE id=$id";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
 				$messages[] = "Datos actualizados satisfactoriamente.";
