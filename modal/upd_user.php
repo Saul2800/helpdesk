@@ -6,17 +6,19 @@ function PasarValorUpd()
 		var str = document.getElementById("mod_email").value;
   		var res = str.split("@");
         document.getElementById("mod_username").value = res[0];
-}  
-</script>
-
-<script type="text/javascript">
-
-    function ShowTipo(){
-        $("#mod_kindProvedor").show();
+}
+function validarKindUser(){
+    var valorDeKind = document.getElementById("mod_kinduser").value;
+    //alert(valorKind);
+    console.log(valorDeKind);
+    if(valorDeKind==3){
+        
+        document.getElementById("mod_proveedor").style.display = "block";
     }
-    function hideTipo(){
-        $("#mod_kindProvedor").hide();
+    else{
+        document.getElementById("mod_proveedor").style.display = "none";
     }
+}
 </script>
 
     <div class="modal fade bs-example-modal-lg-upd" tabindex="-1" role="dialog" aria-hidden="true">
@@ -58,12 +60,12 @@ function PasarValorUpd()
                         </div>
                         <!-- Inicia: Se añade nuevo campo para guardar el tipo de usuario JLCI 20/02/2021-->
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <select class="form-control" required name="mod_kinduser" id="mod_kinduser">
-                                    <option onclick="hideTipo()"value="" selected>--Tipo Usuario--</option>
-                                    <option onclick="hideTipo()"value="1" >Administrador</option>
-                                    <option onclick="hideTipo()" value="2" >Usuario</option>
-                                    <option onclick="ShowTipo()" value="3" >Proveedor</option>  
-                                    <option onclick="hideTipo()"value="4" >MonitorTI</option>  
+                            <select onchange="validarKindUser();" class="form-control" required name="mod_kinduser" id="mod_kinduser">
+                                    <option value="" selected>--Tipo Usuario--</option>
+                                    <option value="1" >Administrador</option>
+                                    <option value="2" >Usuario</option>
+                                    <option value="3" >Proveedor</option>  
+                                    <option value="4" >MonitorTI</option>  
                             </select>
                         </div>
                         <!-- Termina: Se añade nuevo campo para guardar el tipo de usuario JLCI 20/02/2021-->
@@ -74,8 +76,8 @@ function PasarValorUpd()
                                 <input name="mod_username" id="mod_username" type="text" class="form-control" readonly placeholder="Nombre Usuario">
                                 <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                             </div>
-                            <div id="mod_proveedor" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <select id="mod_kindProvedor" class="form-control" name="mod_kindProvedor">
+                            <div  style="display:none" id="mod_proveedor" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                            <select id="mod_kindProvedor"  class="form-control" name="mod_kindProvedor">
                                     <option value="" selected>--Tipo proveedor-</option>
                                     <option value="1" >Computo</option>
                                     <option value="2" >Impresoras</option>
