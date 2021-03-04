@@ -6,17 +6,19 @@ function PasarValor()
 		var str = document.getElementById("email").value;
   		var res = str.split("@");
         document.getElementById("username").value = res[0];
-}  
-</script>
-
-<script type="text/javascript">
-
-    function ShowNewTipoo(){
-        $("#division_proveedor").show();
+}
+function validaKindUser(){
+    var valorKind = document.getElementById("user_kind").value;
+    //alert(valorKind);
+    console.log(valorKind);
+    if(valorKind==3){
+        
+        document.getElementById("division_proveedor").style.display = "block";
     }
-    function hideNewTipo(){
-        $("#division_proveedor").hide();
+    else{
+        document.getElementById("division_proveedor").style.display = "none";
     }
+}
 </script>
 
     <div> <!-- Modal -->
@@ -47,12 +49,10 @@ function PasarValor()
                         </div>
                         <!-- SAR 3/03/2021-->
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input pattern="[0-9]{8,8}" name="DNI" required type="text" class="form-control" placeholder="DNI">
-                            <span aria-hidden="true">Digite 8 numeros</span>
+                            <input pattern="[0-9]{8,8}" name="DNI" required maxlength="8" type="text" class="form-control" placeholder="DNI">
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input name="TELEFONO" pattern="[0-9]{10,10}" required type="text" class="form-control" placeholder="Telefono">
-                            <span aria-hidden="true">Digite 10 numeros</span>
+                            <input name="TELEFONO" pattern="[0-9]{10,10}" maxlength="10" required type="text" class="form-control" placeholder="Telefono">
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -64,12 +64,12 @@ function PasarValor()
                         </div>
                         <!-- Inicia: Se añade nuevo campo para guardar el tipo de usuario JLCI 20/02/2021-->
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <select id="user_kind" class="form-control" required name="kinduser">
-                                    <option onclick="hideNewTipo()"value="" selected>--Tipo Usuario--</option>
-                                    <option onclick="hideNewTipo()"value="1" >Administrador</option>
-                                    <option onclick="hideNewTipo()" value="2" >Usuario</option>
-                                    <option onclick="ShowNewTipoo()" value="3" >Proveedor</option>  
-                                    <option onclick="hideNewTipo()"value="4" >MonitorTI</option>  
+                            <select id="user_kind" onchange="validaKindUser();" class="form-control" required name="kinduser">
+                                    <option value="" selected>--Tipo Usuario--</option>
+                                    <option value="1" >Administrador</option>
+                                    <option value="2" >Usuario</option>
+                                    <option value="3" >Proveedor</option>  
+                                    <option value="4" >MonitorTI</option>  
                             </select>
                         </div>
                         <!-- Termina: Se añade nuevo campo para guardar el tipo de usuario JLCI 20/02/2021-->
@@ -78,7 +78,8 @@ function PasarValor()
                                 <input readonly name="username" id="username" type="text" class="form-control" placeholder="Nombre Usuario" >
                                 <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                             </div>
-                        <div id="division_proveedor" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+
+                        <div id="division_proveedor" style="display:none" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <select id="kind_proveedor" class="form-control" name="kindProvedor">
                                     <option value="" selected>--Tipo proveedor-</option>
                                     <option value="1" >Computo</option>
