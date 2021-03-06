@@ -32,24 +32,6 @@ CREATE TABLE `category` (
 --
 -- Table structure for table `comment`
 --
-
-DROP TABLE IF EXISTS `comment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `comment` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_user` int DEFAULT NULL,
-  `comment` varchar(250) DEFAULT NULL,
-  `rating` varchar(45) DEFAULT NULL,
-  `id_project` int DEFAULT NULL,
-  `id_ticket` int DEFAULT NULL,
-  `kind_user` int DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Table structure for table `kind`
 --
@@ -169,6 +151,13 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `name`, `email`, `password`, `profile_pic`, `is_active`, `kind`, `created_at`) VALUES
+(1, 'admin', 'Amner Saucedo Sosa', 'waptoing7@gmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'default.png', 1, 1, '2017-07-15 12:05:45');
 
 --
 -- Dumping events for database 'ticketly'
