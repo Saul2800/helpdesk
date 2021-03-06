@@ -4,6 +4,7 @@
     $statuses =mysqli_query($con, "select * from status");
     $kinds =mysqli_query($con, "select * from kind");
     $categories =mysqli_query($con, "select * from category");
+    $usuarios= mysqli_query($con, "select * from user where kind != 2 and kind !=1");
 
 $kind;    
 //monitorTI//Proveedor
@@ -13,6 +14,12 @@ if($kind == 3 || $kind == 4){
 
 else{
     $allow_extern = true;
+}
+
+if($kind == 1){
+    $allow_admin = true;      
+}else if($kind != 1){
+    $allow_admin = false;
 }
 ?>
 
@@ -30,7 +37,7 @@ else{
                     <h4 class="modal-title" id="myModalLabel">Agregar Ticket</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal form-label-left input_mask" method="post" id="add" name="add">
+                    <form enctype="multipart/form-data"class="form-horizontal form-label-left input_mask" method="post" id="add" name="add">
                         <div id="result"></div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tipo
@@ -43,6 +50,21 @@ else{
                                 </select>
                             </div>
                         </div>
+                        <!--SAR ASIGNAR TICKET A-->
+ <?php if($allow_admin): ?>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Asignar a
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <select class="form-control" name="asignedTicket">
+                                    <option selected="" value="">-- Selecciona --</option>
+                                      <?php foreach($usuarios as $p):?>
+                                        <option value="<?php echo $p['id']; ?>"><?php echo $p['id']; ?></option>
+                                      <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+<?php endif; ?>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Titulo<span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
@@ -104,6 +126,10 @@ else{
                                 </select>
                             </div>
                         </div>
+                        Imagen1 <input type="file" name="file1" id="imgUno">
+
+                        Imagen2 <input type="file" name="file2" id="imgDos">
+
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -118,3 +144,23 @@ else{
             </div>
         </div>
     </div> <!-- /Modal -->
+
+    <script>
+    $(function(){
+        $("input[name='file1']").on("change", function(){
+            var formData = new FormData($("#imgUno")[0]);
+            var ruta = "action/upload-img-uno.php";
+            $.ajax({
+                url: ruta,
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(datos)
+                {
+                    $("#respuesta").html(datos);
+                }
+            });
+        });
+    });
+</script>

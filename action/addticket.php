@@ -38,6 +38,7 @@
 		$status_id = $_POST["status_id"];
 		$kind_id = $_POST["kind_id"];
 		$created_at="NOW()";
+		$asignedTicket = $_POST["asignedTicket"];
 
 		// $user_id=$_SESSION['user_id'];
 
@@ -54,7 +55,7 @@
 	        $nameProject = $row['name'];
 	    }
 	    $conten="HelpDeskJEE"."\nSe creo el ticket ". $title ." del proyecto ".$nameProject."\nRealizado por: ".$name;
-		$sql="insert into ticket (title,description,category_id,project_id,priority_id,user_id,status_id,kind_id,created_at) value (\"$title\",\"$description\",\"$category_id\",\"$project_id\",$priority_id,$user_id,$status_id,$kind_id,$created_at)";
+		$sql="insert into ticket (title,description,category_id,project_id,priority_id,user_id,status_id,kind_id,created_at,asigned_id) value (\"$title\",\"$description\",\"$category_id\",\"$project_id\",$priority_id,$user_id,$status_id,$kind_id,$created_at,\"$asignedTicket\")";
 
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){

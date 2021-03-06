@@ -177,3 +177,40 @@ INSERT INTO `user` (`id`, `username`, `name`, `email`, `password`, `profile_pic`
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-03-02 21:45:20
+--
+-- Volcado de datos para la tabla `priority`
+--
+
+INSERT INTO `priority` (`id`, `name`) VALUES
+(1, 'Alta'),
+(2, 'Media'),
+(3, 'Baja');
+
+--
+-- Volcado de datos para la tabla `kind`
+--
+
+
+INSERT INTO `kind` (`id`, `name`) VALUES
+(1, 'Ticket'),
+(2, 'Bug'),
+(3, 'Sugerencia'),
+(4, 'Caracteristica');
+
+--
+-- Volcado de datos para la tabla `status`
+--
+
+INSERT INTO `status` (`id`, `name`) VALUES
+(1, 'Pendiente'),
+(2, 'En Desarrollo'),
+(3, 'Terminado'),
+(4, 'Cancelado');
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `name`, `email`, `password`, `profile_pic`, `is_active`, `kind`, `created_at`) VALUES
+(1, 'admin', 'Administrador HelpDesk', 'admin@helpdesk.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'default.png', 1, 1, '2017-07-15 12:05:45');
+
