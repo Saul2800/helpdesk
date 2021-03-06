@@ -37,7 +37,7 @@ if($kind == 1){
                     <h4 class="modal-title" id="myModalLabel">Agregar Ticket</h4>
                 </div>
                 <div class="modal-body">
-                    <form enctype="multipart/form-data"class="form-horizontal form-label-left input_mask" method="post" id="add" name="add">
+                    <form enctype="multipart/form-data" class="form-horizontal form-label-left input_mask" method="post" id="add" name="add">
                         <div id="result"></div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tipo
@@ -126,10 +126,18 @@ if($kind == 1){
                                 </select>
                             </div>
                         </div>
-                        Imagen1 <input type="file" name="file1" id="imgUno">
-
-                        Imagen2 <input type="file" name="file2" id="imgDos">
-
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label for="file-attach">Adjunta el archivo:</label>
+                                <input type='file' name='file' id='file' placeholder="Adjunta el archivo" required>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label for="adjuntar archivo">Adjunta otro archivo (Opcional):</label>
+                                <input type='file' name='file1' id='file1' placeholder="Adjunta el archivo adicional">
+                            </div>
+                        </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -144,23 +152,3 @@ if($kind == 1){
             </div>
         </div>
     </div> <!-- /Modal -->
-
-    <script>
-    $(function(){
-        $("input[name='file1']").on("change", function(){
-            var formData = new FormData($("#imgUno")[0]);
-            var ruta = "action/upload-img-uno.php";
-            $.ajax({
-                url: ruta,
-                type: "POST",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(datos)
-                {
-                    $("#respuesta").html(datos);
-                }
-            });
-        });
-    });
-</script>
