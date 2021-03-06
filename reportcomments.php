@@ -80,7 +80,7 @@ if($kind == 1){ //ADMINISTRADOR VE TODO
     LEFT JOIN project pj ON tk.project_id = pj.id 
     LEFT JOIN kind kd ON tk.kind_id = kd.id
     LEFT JOIN comment cmt ON cmt.id_ticket = tk.id 
-    LEFT JOIN user usr ON cmt.id_user = usr.id WHERE tk.kind_id =".$kind." AND tk.user_id =".$id;
+    LEFT JOIN user usr ON cmt.id_user = usr.id WHERE usr.kind =".$kind." AND tk.user_id =".$id;
     //var_dump($query);
 }else if($kind == 4){ //MONITORITE VE TODO DE LO SUYO
     $query = "SELECT cmt.id as IdComment, usr.id as IdUser ,cmt.comment as comment ,cmt.rating as rating,
@@ -88,7 +88,7 @@ if($kind == 1){ //ADMINISTRADOR VE TODO
     LEFT JOIN project pj ON tk.project_id = pj.id 
     LEFT JOIN kind kd ON tk.kind_id = kd.id
     LEFT JOIN comment cmt ON cmt.id_ticket = tk.id 
-    LEFT JOIN user usr ON cmt.id_user = usr.id WHERE tk.kind_id =".$kind." AND tk.user_id =".$id;
+    LEFT JOIN user usr ON cmt.id_user = usr.id WHERE usr.kind =".$kind." AND tk.user_id =".$id;
     //var_dump($query);
 }
 $resultado = mysqli_query($con,$query);
