@@ -32,6 +32,27 @@ CREATE TABLE `category` (
 --
 -- Table structure for table `comment`
 --
+<<<<<<< HEAD
+=======
+
+DROP TABLE IF EXISTS `comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `comment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_user` int DEFAULT NULL,
+  `comment` varchar(250) DEFAULT NULL,
+  `rating` varchar(45) DEFAULT NULL,
+  `id_project` int DEFAULT NULL,
+  `id_ticket` int DEFAULT NULL,
+  `kind_user` int DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+>>>>>>> 54f2536c120a002a66d243ec5988d48b941985df
 --
 -- Table structure for table `kind`
 --

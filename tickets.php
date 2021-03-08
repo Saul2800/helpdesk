@@ -63,23 +63,32 @@
 <!--<script type="text/javascript" src="js/VentanaCentrada.js"></script>-->
 <script>
 $("#add").submit(function(event) {
-  $('#save_data').attr("disabled", true);
-  
- var parametros = $(this).serialize();
+$('#save_data').attr("disabled", true);
+event.preventDefault();  //Dejar esto para ver los errores :D
+//var parametros = $(this); Esto también es valido :p
+var formData = new FormData($("#add")[0]);
+//console.log(parametros);
+/*Imprimo las variables de mi formData JLCI 06/03/2021*/
+for (var value of formData.values()) {
+   console.log(value);
+}
+
      $.ajax({
             type: "POST",
             url: "action/addticket.php",
-            data: parametros,
+            data: formData,
              beforeSend: function(objeto){
                 $("#result").html("Mensaje: Cargando...");
               },
+            processData: false,  // <-- le indicamos a jQuery que no procese el `data`
+            contentType: false,
             success: function(datos){
             $("#result").html(datos);
             $('#save_data').attr("disabled", false);
             load(1);
           }
     });
-  event.preventDefault();
+ // event.preventDefault(); //Habilitar cuando se haya terminado
 })
 
 
