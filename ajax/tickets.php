@@ -73,12 +73,12 @@
         }
         else if ($kind == 3) //En caso de ser proveedor permite ver solo lo asignado a el
         {
-            $sql = "SELECT * FROM  ticket WHERE user_id = '$id_user' and asigned_id = '$kind' $sWhere LIMIT $offset,$per_page ";
+            $sql = "SELECT * FROM  ticket WHERE asigned_id = '$id_user' $sWhere LIMIT $offset,$per_page ";
             $query = mysqli_query($con, $sql);
         }
         else if ($kind == 4) //En caso de ser monitor permite ver solo lo asignado a el
         {
-            $sql = "SELECT * FROM  ticket WHERE user_id = '$id_user' and asigned_id = '$kind'  $sWhere LIMIT $offset,$per_page ";
+            $sql = "SELECT * FROM  ticket WHERE asigned_id = '$id_user' $sWhere LIMIT $offset,$per_page ";
             $query = mysqli_query($con, $sql);
         }
 
