@@ -32,6 +32,8 @@ CREATE TABLE `category` (
 --
 -- Table structure for table `comment`
 --
+<<<<<<< HEAD
+=======
 
 DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -50,6 +52,7 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+>>>>>>> 54f2536c120a002a66d243ec5988d48b941985df
 --
 -- Table structure for table `kind`
 --
@@ -169,6 +172,13 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `name`, `email`, `password`, `profile_pic`, `is_active`, `kind`, `created_at`) VALUES
+(1, 'admin', 'Amner Saucedo Sosa', 'waptoing7@gmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'default.png', 1, 1, '2017-07-15 12:05:45');
 
 --
 -- Dumping events for database 'ticketly'

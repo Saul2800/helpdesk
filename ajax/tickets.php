@@ -56,9 +56,35 @@
         $numrows = $row['numrows'];
         $total_pages = ceil($numrows/$per_page);
         $reload = './expences.php';
+
+        //neri
+       session_start();
+       $id_user = $_SESSION['user_id'];
+       $kind=$_SESSION['user_kind'];
+       if ($kind == 1)  //En caso de ser Admin permite ver todo
+       {
+            $sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
+            $query = mysqli_query($con, $sql); 
+       }
+       else if ($kind == 2) //En caso de ser usuario permite ver solo lo publicado por el mismo usuario
+        {
+            $sql = "SELECT * FROM  ticket WHERE user_id = '$id_user'  $sWhere LIMIT $offset,$per_page ";
+            $query = mysqli_query($con, $sql);
+        }
+        else if ($kind == 3) //En caso de ser proveedor permite ver solo lo asignado a el
+        {
+            $sql = "SELECT * FROM  ticket WHERE asigned_id = '$id_user' $sWhere LIMIT $offset,$per_page ";
+            $query = mysqli_query($con, $sql);
+        }
+        else if ($kind == 4) //En caso de ser monitor permite ver solo lo asignado a el
+        {
+            $sql = "SELECT * FROM  ticket WHERE asigned_id = '$id_user' $sWhere LIMIT $offset,$per_page ";
+            $query = mysqli_query($con, $sql);
+        }
+
+      //neriend
         //main query to fetch the data
-        $sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
-        $query = mysqli_query($con, $sql);
+        
         //loop through fetched data
         if ($numrows>0){
             
