@@ -57,9 +57,9 @@ if($kind == 1){
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <select class="form-control" name="asignedTicket">
-                                    <option selected="" value="0">-- Selecciona --</option>
+                                    <option selected="" value="">-- Selecciona --</option>
                                       <?php foreach($usuarios as $p):?>
-                                        <option value="<?php echo $p['id']; ?>"><?php echo $p['id']; ?></option>
+                                        <option value="<?php echo $p['id']; ?>"><?php echo $p['username']; ?></option>
                                       <?php endforeach; ?>
                                 </select>
                             </div>
