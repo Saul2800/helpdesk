@@ -104,7 +104,7 @@
 		$kind_id = $_POST["kind_id"];
 		$created_at="NOW()";
 		$asignedTicket = $_POST["asignedTicket"];
-		if(empty($_POST["asignedTicket"])){$asignedTicket="0";}
+		if(empty($_POST["asignedTicket"])){$asignedTicket="";}
 		
 
 		// $user_id=$_SESSION['user_id'];

@@ -33,6 +33,18 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
-  
+.botonDescargar2{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 11px;
+    color: #ffffff;
+    background-color: #da7c1a;
+    border-radius: 12px;
+    border: #da7c1a;
+    position: absolute;
+    width: 100px;
+    text-align: center;
+}  
   
   

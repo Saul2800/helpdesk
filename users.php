@@ -2,6 +2,18 @@
     $title ="Usuarios | ";
     include "head.php";
     include "sidebar.php";
+
+//security options
+//admin
+$kind=$_SESSION['user_kind'];
+if($kind==1){
+$allow_admin = true;        
+}
+//user//monitorTI//Proveedor
+else{
+$allow_admin = false; 
+}
+
 ?>  
     <div class="right_col" role="main"><!-- page content -->
         <div class="">
@@ -35,6 +47,9 @@
                                     <button type="button" class="btn btn-default" onclick='load(1);'>
                                         <span class="glyphicon glyphicon-search" ></span> Buscar</button>
                                     <!-- <span id="loader"></span> -->
+<?php if($allow_admin): ?>
+                                    <a class="botonDescargar2" href="reportusers.php?t=pdf" target="_blank">Descargar</a>
+<?php endif; ?>
                                 </div>
                             </div>
                         </form>   
