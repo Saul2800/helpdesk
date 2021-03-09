@@ -7,6 +7,9 @@
     $priorities = mysqli_query($con,  "select * from priority");
     $statuses = mysqli_query($con, "select * from status");
     $kinds = mysqli_query($con, "select * from kind");
+    $idUser=$_SESSION['user_id'];
+    $kindUser=$_SESSION['user_kind'];
+
 ?>  
 
 
@@ -140,7 +143,13 @@
                                                 $users = mysqli_query($con, $sql);
 
                                         }else{
-                                                $users = mysqli_query($con, "select * from ticket order by created_at desc");
+                                            if($kindUser==1){
+                                               $users = mysqli_query($con, "select * from ticket order by created_at desc");
+                                            }else if($kindUser==2){
+                                               $users = mysqli_query($con, "select * from ticket where user_id=$idUser order by created_at desc");
+                                            }else if($kindUser==3||$kindUser==4){
+                                                $users = mysqli_query($con, "select * from ticket where asigned_id=$idUser order by created_at desc");
+                                            }
 
                                         }
 

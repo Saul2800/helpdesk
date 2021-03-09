@@ -4,12 +4,14 @@
     include "sidebar.php";
     session_start();
     $id_usuario = $_SESSION["user_id"];
+    $kind_user = $_SESSION["user_kind"];
     $projects = mysqli_query($con, "select * from project");
     $priorities = mysqli_query($con,  "select * from priority");
     $statuses = mysqli_query($con, "select * from status");
     $kinds = mysqli_query($con, "select * from kind");
     $comment = mysqli_query($con, "select * from comment");
 ?>  
+
 
 
     <div class="right_col" role="main"><!-- page content -->
@@ -155,7 +157,7 @@
                 <table class="table table-bordered table-hover">
                     <thead class="headings">
                         <th class="column-title">ID Comentario</th>
-                        <th class="column-title">ID Usuario</th>
+                        <th class="column-title">Username</th>
                         <th class="column-title">Comentario</th>
                         <th class="column-title">Calificación</th>
                         <th class="column-title">Proceso Electoral</th>
@@ -200,24 +202,32 @@
               <?php
             $total = 0;
             $commentarios = array();
-            $commentarios = mysqli_query($con,"select * from comment where id_user=$id_usuario");   
-            foreach($commentarios as $comments){
+            if($kind_user==1){
+                $commentarios = mysqli_query($con,"select * from comment where id_user=$id_usuario");   
+            }if($kind_user==2){
+                $commentarios = mysqli_query($con,"select * from comment where id_user=$id_usuario");   
+            }if($kind_user==3||$kind_user==4){
+                $commentarios = mysqli_query($con,"select * from comment where id_user=$id_usuario");   
+            }foreach($commentarios as $comments){
                 $project_id=$user['project_id'];
                 $priority_id=$user['priority_id'];
                 $kind_id=$user['kind_id'];
                 $category_id=$user['category_id'];
                 $status_id=$user['status_id'];
                 $id_user=$user['id'];
+                $idcomment=$comments['id'];
                 $status=mysqli_query($con, "select * from status where id=$status_id");
                 $category=mysqli_query($con, "select * from category where id=$category_id");
                 $kinds = mysqli_query($con,"select * from kind where id=$kind_id");
                 $project  = mysqli_query($con, "select * from project where id=$project_id");
                 $medic = mysqli_query($con,"select * from priority where id=$priority_id");
-                
+                $user_name = mysqli_query($con,"select * from user where id=$id_usuario");                
                 ?>
                 <tr>
-                <td><?php echo $comments['id']; ?></td>
-                <td><?php echo $comments['id_user']; ?></td>
+                <td ><?php echo $comments['id']; ?></td>
+                <?php foreach($user_name as $username){?>
+                <td><?php echo $username['username']; ?></td>
+                <?php } ?>
                 <td><?php echo $comments['comment']; ?></td>
                 <td><?php echo $comments['rating']; ?></td>
                 <?php foreach($project as $pro){?>
@@ -225,9 +235,13 @@
                 <?php } ?>
                 <td><?php echo $comments['id_ticket']; ?></td>
                 <?php foreach($kinds as $kind){?>
-                <td><?php echo $kind['name'] ?></td>
+                <td><?php echo $kind['name']; ?></td>
                 <?php } ?>
                 <td><?php echo $comments['created_at']; ?></td>
+                <?php if($kind_user==2){?>                
+                <td ><span class="pull-right">  
+                        <a href="#" class='btn btn-default' title='Borrar Ticket' onclick=""><i class="glyphicon glyphicon-trash"></i> </a></span></td>
+                <?php } ?>        
                 </tr>
              <?php  
                 

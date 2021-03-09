@@ -149,7 +149,8 @@
                         <td><?php echo $name_status;?></td>
                         <td><?php echo $created_at;?></td>
                         <td ><span class="pull-right">
-                        <a href="#" class='btn btn-default' title='Calificar Ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#miModal"><i class="glyphicon glyphicon-star"></i></a> 
+                        <a href="#" class='btn btn-default' title='Calificar Ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#miModal"><i class="glyphicon glyphicon-star"></i></a>
+                        <a href="#" class='btn btn-default' title='Imagen Ticket' onclick=" "><i class="glyphicon glyphicon-picture"></i></a>
                         <a href="#" class='btn btn-default' title='Editar Ticket' onclick="obtener_datos('<?php echo $id;?>');" data-toggle="modal" data-target=".bs-example-modal-lg-udp"><i class="glyphicon glyphicon-edit"></i></a> 
                         <a href="#" class='btn btn-default' title='Borrar Ticket' onclick="eliminar('<?php echo $id; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
                     </tr>

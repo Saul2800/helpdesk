@@ -10,7 +10,7 @@
         $id=$_SESSION['user_id'];
         $kind=$_SESSION['user_kind'];
     }
-    require('lib/fpdf/WriteHTML.php'); //Para usar el writeHTML
+    require('lib/fpdf/fpdf.php'); //Para usar el writeHTML
 ?>
 <?php
 $tipo = isset($_REQUEST['t']);
@@ -73,7 +73,7 @@ if($kind == 1){ //ADMINISTRADOR VE TODO
     LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
     LEFT JOIN category cat ON tk.category_id = cat.id
     LEFT JOIN priority prt ON tk.priority_id = prt.id
-    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.kind_id =".$kind." AND tk.user_id =".$id;
+    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.user_id =".$id;
     //var_dump($query);
 }else if($kind == 3){//Si es tipo proveedor, muestra todos los tickets
     $query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
@@ -81,7 +81,7 @@ if($kind == 1){ //ADMINISTRADOR VE TODO
     LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
     LEFT JOIN category cat ON tk.category_id = cat.id
     LEFT JOIN priority prt ON tk.priority_id = prt.id
-    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.kind_id =".$kind;
+    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.asigned_id =".$id;
     //var_dump($query);
 }else if($kind == 4){//Si es tipo monitorETI, muestra todos los tickets
     $query = "SELECT title, pj.name as project ,kd.name as tipo ,cat.name as categoria, prt.name as priority,
@@ -89,7 +89,7 @@ if($kind == 1){ //ADMINISTRADOR VE TODO
     LEFT JOIN project pj ON tk.project_id = pj.id LEFT JOIN kind kd ON tk.kind_id = kd.id
     LEFT JOIN category cat ON tk.category_id = cat.id
     LEFT JOIN priority prt ON tk.priority_id = prt.id
-    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.kind_id =".$kind;
+    LEFT JOIN status st ON tk.status_id = st.id WHERE tk.asigned_id =".$id;
     //var_dump($query);
 }
 $resultado = mysqli_query($con,$query);

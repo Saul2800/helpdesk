@@ -58,39 +58,39 @@ $pdf->Output();
 */
 //$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
 //$query = "SELECT id, title, description, created_at FROM ticket";
-if($kind == 1){ //ADMINISTRADOR VE TODO
-    $query = "SELECT cmt.id as IdComment, usr.id as IdUser ,cmt.comment as comment ,cmt.rating as rating,
+//if($kind == 1){ //ADMINISTRADOR VE SOLO LO SUYO
+    $query = "SELECT cmt.id as IdComment, usr.username as Username ,cmt.comment as comment ,cmt.rating as rating,
     pj.name as project, tk.id as IdTicket, kd.name as kindTicket, cmt.created_at as created_at FROM ticket tk
-    LEFT JOIN project pj ON tk.project_id = pj.id 
-    LEFT JOIN kind kd ON tk.kind_id = kd.id
-    LEFT JOIN comment cmt ON cmt.id_ticket = tk.id 
-    LEFT JOIN user usr ON cmt.id_user = usr.id";
+     JOIN project pj ON tk.project_id = pj.id 
+     JOIN kind kd ON tk.kind_id = kd.id
+     JOIN comment cmt ON cmt.id_ticket = tk.id 
+     JOIN user usr ON cmt.id_user = usr.id WHERE cmt.id_user =".$id;
     //var_dump($query);
-} else if($kind == 2){ //USUARIO VE SOLO LO SUYO
-    $query = "SELECT cmt.id as IdComment, usr.id as IdUser ,cmt.comment as comment ,cmt.rating as rating,
+/*} else if($kind == 2){ //USUARIO VE SOLO LO SUYO
+    $query = "SELECT cmt.id as IdComment, usr.username as Username ,cmt.comment as comment ,cmt.rating as rating,
     pj.name as project, tk.id as IdTicket, kd.name as kindTicket, cmt.created_at as created_at FROM ticket tk
-    LEFT JOIN project pj ON tk.project_id = pj.id 
-    LEFT JOIN kind kd ON tk.kind_id = kd.id
-    LEFT JOIN comment cmt ON cmt.id_ticket = tk.id 
-    LEFT JOIN user usr ON cmt.id_user = usr.id WHERE tk.user_id =".$id;
+     JOIN project pj ON tk.project_id = pj.id 
+     JOIN kind kd ON tk.kind_id = kd.id
+     JOIN comment cmt ON cmt.id_ticket = tk.id 
+     JOIN user usr ON cmt.id_user = usr.id WHERE cmt.id_user =".$id;
     //var_dump($query);
 }else if($kind == 3){ //PROVEEDOR VE TODO DE LOS SUYOS
-    $query = "SELECT cmt.id as IdComment, usr.id as IdUser ,cmt.comment as comment ,cmt.rating as rating,
+    $query = "SELECT cmt.id as IdComment, usr.username as Username ,cmt.comment as comment ,cmt.rating as rating,
     pj.name as project, tk.id as IdTicket, kd.name as kindTicket, cmt.created_at as created_at FROM ticket tk
-    LEFT JOIN project pj ON tk.project_id = pj.id 
-    LEFT JOIN kind kd ON tk.kind_id = kd.id
-    LEFT JOIN comment cmt ON cmt.id_ticket = tk.id 
-    LEFT JOIN user usr ON cmt.id_user = usr.id WHERE usr.kind =".$kind." AND tk.user_id =".$id;
+     JOIN project pj ON tk.project_id = pj.id 
+     JOIN kind kd ON tk.kind_id = kd.id
+     JOIN comment cmt ON cmt.id_ticket = tk.id 
+     JOIN user usr ON cmt.id_user = usr.id WHERE usr.kind =".$kind;
     //var_dump($query);
 }else if($kind == 4){ //MONITORITE VE TODO DE LO SUYO
-    $query = "SELECT cmt.id as IdComment, usr.id as IdUser ,cmt.comment as comment ,cmt.rating as rating,
+    $query = "SELECT cmt.id as IdComment, usr.username as Username ,cmt.comment as comment ,cmt.rating as rating,
     pj.name as project, tk.id as IdTicket, kd.name as kindTicket, cmt.created_at as created_at FROM ticket tk
-    LEFT JOIN project pj ON tk.project_id = pj.id 
-    LEFT JOIN kind kd ON tk.kind_id = kd.id
-    LEFT JOIN comment cmt ON cmt.id_ticket = tk.id 
-    LEFT JOIN user usr ON cmt.id_user = usr.id WHERE usr.kind =".$kind." AND tk.user_id =".$id;
+     JOIN project pj ON tk.project_id = pj.id 
+     JOIN kind kd ON tk.kind_id = kd.id
+     JOIN comment cmt ON cmt.id_ticket = tk.id 
+     JOIN user usr ON cmt.id_user = usr.id WHERE usr.kind =".$kind;
     //var_dump($query);
-}
+}*/
 $resultado = mysqli_query($con,$query);
 
 $pdf = new PDF('P');
@@ -107,7 +107,7 @@ $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B',6);
 //$pdf->Cell(20,6,'id',1,0,'C',1);
 $pdf->Cell(10,6,utf8_decode('ID'),1,0,'C',1);
-$pdf->Cell(15,6,'ID Usuario',1,0,'C',1);
+$pdf->Cell(15,6,'Username',1,0,'C',1);
 $pdf->Cell(65,6,utf8_decode('Comentario'),1,0,'C',1);
 $pdf->Cell(15,6,'Calificacion',1,0,'C',1);
 $pdf->Cell(20,6,'Proceso electoral',1,0,'C',1);
@@ -122,7 +122,7 @@ while($row = $resultado->fetch_assoc())
     
         //$pdf->Cell(20,6,utf8_decode($kind),1,0,'C');
         $pdf->Cell(10,6,utf8_decode($row['IdComment']),1,0,'C');
-        $pdf->Cell(15,6,utf8_decode($row['IdUser']),1,0,'C');
+        $pdf->Cell(15,6,utf8_decode($row['Username']),1,0,'C');
         $pdf->Cell(65,6,utf8_decode($row['comment']),1,0,'C');
         $pdf->Cell(15,6,utf8_decode($row['rating']),1,0,'C');
         $pdf->Cell(20,6,utf8_decode($row['project']),1,0,'C');

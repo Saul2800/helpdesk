@@ -43,11 +43,11 @@ function validarKindUser(){
                         </div>
                         <!-- SAR 3/03/2021-->
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input pattern="[0-9]{8,8}" maxlength="8" name="mod_DNI" required type="text" class="form-control" placeholder="DNI">
+                            <input pattern="[0-9]{8,8}" maxlength="8" name="mod_DNI" id="mod_DNI" required type="text" class="form-control" placeholder="DNI">
                             <span aria-hidden="true">Digite 8 numeros</span>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input name="mod_TELEFONO" pattern="[0-9]{10,10}" maxlength="10" required type="text" class="form-control" placeholder="Telefono">
+                            <input name="mod_TELEFONO" id="mod_TELEFONO" pattern="[0-9]{10,10}" maxlength="10" required type="text" class="form-control" placeholder="Telefono">
                             <span aria-hidden="true">Digite 10 numeros</span>
                         </div>
 
