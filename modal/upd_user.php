@@ -30,7 +30,7 @@ function validarKindUser(){
                     <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal form-label-left input_mask" id="upd_user" name="upd_user">
+                    <form action="testmailer.php" class="form-horizontal form-label-left input_mask" id="upd_user" name="upd_user">
                         <div id="result_user2"></div>
                         <input type="hidden" id="mod_id" name="mod_id">
                         <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
@@ -96,6 +96,7 @@ function validarKindUser(){
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                              <input type="hidden"value="5" name="EM">  
                               <button id="upd_data" type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ session_start();
 //SAR asignaciones: 7/03/21
 $origen=$_REQUEST["EM"];
 include "../config/config.php";//Contiene funcion que conecta a la base de datos
-
+$CCmailB=false;
 //recuperar correo;
 if($origen=="1"){
 	$nombre=$_POST["nombre"];
@@ -24,23 +24,41 @@ if($origen=="1"){
 	header("location: index.php");
 }if($origen=="2"){					//Para mandar notificacion de que se agrego un ticket
 	$titulo=$_POST["title"];
-	$proyecto=$_SESSION["project_ticket_name"];
+	$proyecto=$_SESSION["project_ticket_nameA"];
+	$emailUasigned=$_SESSION["asignedmailNU"];//viende de addticket
 	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un ticket de titulo: ".$titulo .".". "\n Del proyecto: " . $proyecto;
 	$destino=$_SESSION["user_email"];
-	$CCmailB=false;
-}if($origen=="3"){					//Para mandar notificacion de que se edito un ticket
+	if(empty($emailUasigned)){$CCmailB=false;}
+	else{
+	$CCmailB=true;
+	$CCmail=$emailUasigned;}
+}if($origen=="3"){							//Para mandar notificacion de que se edito un ticket
+	$emailAC=$_SESSION["user_email"];					
 	$titulo=$_POST["title"];
 	$proyecto=$_SESSION["project_ticket_name"];
 	$NuevoEstatus=$_SESSION['tickets_estatus'];//viene de action/updticket.php
 	$contenido= "< HelpDeskJEE >\n"."\nSe edito un ticket de titulo: ".$titulo .".". "\n Del proyecto: " . $proyecto. "."."\n Su estado es: " . $NuevoEstatus;
 	$destino=$_SESSION['ticket_email'];//viene de action/updticket.php
-	$CCmailB=false;
+	$emailUT=$_SESSION['asignedmailUT'];//viene de action/updticket.php
+	if(empty($emailUT)){$CCmailB=false;}
+	else{
+	$CCmailB=true;
+	$CCmail=$emailUT;}
 }if($origen=="4"){					//Para mandar notificacion de que se agrego un usuario
 	$emailNU=$_POST["email"];
 	$nombreNU=$_POST["name"];
 	$passwordNU=$_POST["password"];
 	$KIND =	$_SESSION["kindNU_name"];//viene de action/adduser.php
 	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un miembro: ".$nombreNU .".". "\n Con el correo: " . $emailNU. "."."\n De tipo: " . $KIND."."."\n Su constraseña es: " . $passwordNU;
+	$destino=$_SESSION['user_email'];
+	$CCmailB=true;
+	$CCmail=$emailNU;
+}if($origen=="5"){					//Para mandar notificacion de que se agrego un usuario
+	$emailNU=$_POST["mod_email"];
+	$nombreNU=$_POST["mod_name"];
+	$passwordNU=$_POST["password"];
+	$KIND =	$_SESSION["kindEU_name"];//viene de action/upd_user.php
+	$contenido= "< HelpDeskJEE >\n"."\nSe edito un miembro: ".$nombreNU .".". "\n Con el correo: " . $emailNU. "."."\n De tipo: " . $KIND."."."\n ->" . $passwordNU;
 	$destino=$_SESSION['user_email'];
 	$CCmailB=true;
 	$CCmail=$emailNU;

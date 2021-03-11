@@ -29,6 +29,7 @@
 		if ($row = mysqli_fetch_array($query1)) {
 				$user_ticket_id = $row['user_id'];
 				$id_project=	$row['project_id'];
+				$user_id_asigned=$row['asigned_id'];
 		}
 	$query2 = mysqli_query($con,"SELECT * FROM user WHERE id = \"$user_ticket_id\";");
 		if ($row = mysqli_fetch_array($query2)) {
@@ -41,7 +42,11 @@
 	$query4 = mysqli_query($con,"SELECT * FROM project WHERE id = \"$id_project\";");
 		if ($row = mysqli_fetch_array($query4)) {
 				$_SESSION["project_ticket_name"] = $row['name'];
-		}	
+		}
+	$query5=mysqli_query($con,"SELECT * from user WHERE id=$user_id_asigned");
+	    while ($row=mysqli_fetch_array($query5)) {
+	        $_SESSION['asignedmailUT'] = $row['email'];
+	    }	
 
 		$sql = "update ticket set title=\"$title\",category_id=\"$category_id\",project_id=\"$project_id\",priority_id=\"$priority_id\",description=\"$description\",status_id=\"$status_id\",kind_id=\"$kind_id\",updated_at=NOW() where id=$ticket_id";
 

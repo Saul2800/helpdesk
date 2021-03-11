@@ -119,7 +119,11 @@
 	    //projet 
 	    $query2=mysqli_query($con,"SELECT name from project where id=$project_id");
 	    while ($row=mysqli_fetch_array($query2)) {
-	        $nameProject = $row['name'];
+	        $_SESSION["project_ticket_nameA"] = $row['name'];
+	    }
+	    $query3=mysqli_query($con,"SELECT * from user where id=$asignedTicket");
+	    while ($row=mysqli_fetch_array($query3)) {
+	        $_SESSION["asignedmailNU"] = $row['email'];
 	    }
 		/*if($imageExist == 2){
 		$query=mysqli_query($con, "UPDATE ticket set problem_imguno=\"$name\",problem_imgdos=\"$name\" WHERE id = \"$id_user\"");
