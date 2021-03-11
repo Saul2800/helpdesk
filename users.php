@@ -91,6 +91,21 @@ $( "#add_user" ).submit(function( event ) {
             load(1);
           }
     });
+//SAR 11/03/21 INI
+    $.ajax({
+            type: "POST",
+            url: "testmailer.php",
+            data: parametros,
+             beforeSend: function(objeto){
+                $("#result_user").html("Mensaje: Cargando...");
+              },
+            success: function(datos){
+            $("#result_user").html(datos);
+            $('#save_data').attr("disabled", false);
+            load(1);
+          }
+    });  
+ //SAR 11/03/21 FIN
   event.preventDefault();
 })
 

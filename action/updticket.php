@@ -28,12 +28,20 @@
  	$query1 = mysqli_query($con,"SELECT * FROM ticket WHERE id = \"$ticket_id\";");
 		if ($row = mysqli_fetch_array($query1)) {
 				$user_ticket_id = $row['user_id'];
+				$id_project=	$row['project_id'];
 		}
 	$query2 = mysqli_query($con,"SELECT * FROM user WHERE id = \"$user_ticket_id\";");
 		if ($row = mysqli_fetch_array($query2)) {
 				$_SESSION['ticket_email'] = $row['email'];
+		}
+	$query3 = mysqli_query($con,"SELECT * FROM status WHERE id = \"$status_id\";");
+		if ($row = mysqli_fetch_array($query3)) {
+				$_SESSION['tickets_estatus'] = $row['name'];
 		}	
-
+	$query4 = mysqli_query($con,"SELECT * FROM project WHERE id = \"$id_project\";");
+		if ($row = mysqli_fetch_array($query4)) {
+				$_SESSION["project_ticket_name"] = $row['name'];
+		}	
 
 		$sql = "update ticket set title=\"$title\",category_id=\"$category_id\",project_id=\"$project_id\",priority_id=\"$priority_id\",description=\"$description\",status_id=\"$status_id\",kind_id=\"$kind_id\",updated_at=NOW() where id=$ticket_id";
 

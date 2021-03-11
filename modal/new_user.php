@@ -33,7 +33,7 @@ function validaKindUser(){
                     <h4 class="modal-title" id="myModalLabel">Agregar Usuario</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal form-label-left input_mask" id="add_user" name="add_user">
+                    <form action="testmailer.php" class="form-horizontal form-label-left input_mask" id="add_user" name="add_user">
                         <div id="result_user"></div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                 <input name="name" required type="text" class="form-control" placeholder="Nombres">
@@ -103,6 +103,7 @@ function validaKindUser(){
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                <input type="hidden"value="4" name="EM">
                               <button id="save_data" type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>

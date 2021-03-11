@@ -19,20 +19,31 @@ if($origen=="1"){
 	$nombre=$_POST["nombre"];
 	$correo=$_POST["correo"];
 	$contenido= "< HelpDeskJEE >\n"."\nSoy: ".$nombre . "\n olvide mi Password" . "\nquisiera recuperarlo" . "\nal correo: " . $correo;
-	$destino="";					//insertar correo al cual se envia para recuperar el password
+	$destino="";	//insertar correo al cual se envia para recuperar el password
+	$CCmailB=false;
 	header("location: index.php");
 }if($origen=="2"){					//Para mandar notificacion de que se agrego un ticket
 	$titulo=$_POST["title"];
-	$proyecto=$_POST["project_id"];
-	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un ticket de titulo: ".$titulo . "\ndel proyecto: " . $proyecto;
-	$destino=$_SESSION["user_email"];	
+	$proyecto=$_SESSION["project_ticket_name"];
+	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un ticket de titulo: ".$titulo .".". "\n Del proyecto: " . $proyecto;
+	$destino=$_SESSION["user_email"];
+	$CCmailB=false;
 }if($origen=="3"){					//Para mandar notificacion de que se edito un ticket
 	$titulo=$_POST["title"];
-	$proyecto=$_POST["project_id"];
-	$contenido= "< HelpDeskJEE >\n"."\nSe edito un ticket de titulo: ".$titulo . "\n del proyecto: " . $proyecto;
-	$ticket_id=$_POST['mod_id'];			
+	$proyecto=$_SESSION["project_ticket_name"];
+	$NuevoEstatus=$_SESSION['tickets_estatus'];//viene de action/updticket.php
+	$contenido= "< HelpDeskJEE >\n"."\nSe edito un ticket de titulo: ".$titulo .".". "\n Del proyecto: " . $proyecto. "."."\n Su estado es: " . $NuevoEstatus;
 	$destino=$_SESSION['ticket_email'];//viene de action/updticket.php
-	
+	$CCmailB=false;
+}if($origen=="4"){					//Para mandar notificacion de que se agrego un usuario
+	$emailNU=$_POST["email"];
+	$nombreNU=$_POST["name"];
+	$passwordNU=$_POST["password"];
+	$KIND =	$_SESSION["kindNU_name"];//viene de action/adduser.php
+	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un miembro: ".$nombreNU .".". "\n Con el correo: " . $emailNU. "."."\n De tipo: " . $KIND."."."\n Su constraseña es: " . $passwordNU;
+	$destino=$_SESSION['user_email'];
+	$CCmailB=true;
+	$CCmail=$emailNU;
 }
 
 $mail = new PHPMailer(true);
@@ -58,6 +69,7 @@ $mail->From = "info@helpdesk.kaabcode.com";//Correo del usuario que envia
 $mail->FromName = "Información HelpDesk"; //Nombre del usuario que envia
 
 $mail->addAddress($destino, "Recepient Name");  //Correo del que recibe
+if($CCmailB==true){$mail->addCC($CCmail);}
 $mail->isHTML(true);
 
 $mail->Subject = "Notificación Portal HelpDesk"; //Aquí va el titulo del correo

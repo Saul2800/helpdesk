@@ -73,6 +73,17 @@
 		/*Inicio: Se recupera la información del tipo JLCI 20/02/2021*/
 		$kinduser=intval($_POST['kinduser']);
 		/*Termina: Se recupera la información del tipo JLCI 20/02/2021*/
+		if($KIND==1){
+			$_SESSION["kindNU_name"]="Administrador";
+		}if($KIND==2){
+			$_SESSION["kindNU_name"]="Usuario";
+		}if($KIND==3){
+			$_SESSION["kindNU_name"]="Proveedor";
+		}if($KIND==4){
+			$_SESSION["kindNU_name"]="MonitorTI";
+		}
+
+
 
 		$is_admin=0;
 		if(isset($_POST["is_admin"])){$is_admin=1;}
