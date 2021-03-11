@@ -89,6 +89,24 @@ for (var value of formData.values()) {
           }
     });
  // event.preventDefault(); //Habilitar cuando se haya terminado
+ //SAR 10/03/21 INI
+$.ajax({
+            type: "POST",
+            url: "testmailer.php",
+            data: formData,
+             beforeSend: function(objeto){
+                $("#result").html("Mensaje: Cargando...");
+              },
+            processData: false,  // <-- le indicamos a jQuery que no procese el `data`
+            contentType: false,
+            success: function(datos){
+            $("#result").html(datos);
+            $('#save_data').attr("disabled", false);
+            load(1);
+          }
+    });
+ //SAR 10/03/21 INI
+
 })
 
 
@@ -109,6 +127,21 @@ $( "#upd" ).submit(function( event ) {
             load(1);
           }
     });
+//SAR 10/03/21 INI
+$.ajax({
+            type: "POST",
+            url: "testmailer.php",
+            data: parametros,
+             beforeSend: function(objeto){
+                $("#result2").html("Mensaje: Cargando...");
+              },
+            success: function(datos){
+            $("#result2").html(datos);
+            $('#upd_data').attr("disabled", false);
+            load(1);
+          }
+    });
+//SAR 10/03/21 FIN
   event.preventDefault();
 })
 

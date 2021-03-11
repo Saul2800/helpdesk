@@ -17,6 +17,8 @@
 				$_SESSION['user_id'] = $row['id'];
 				/*Recuperar al tipo*/
 				$_SESSION['user_kind'] = $row['kind'];
+
+				$_SESSION['user_email']= $row['email'];
 				header("location: ../dashboard.php");
 				
 

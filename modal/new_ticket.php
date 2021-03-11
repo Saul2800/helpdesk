@@ -37,7 +37,7 @@ if($kind == 1){
                     <h4 class="modal-title" id="myModalLabel">Agregar Ticket</h4>
                 </div>
                 <div class="modal-body">
-                    <form enctype="multipart/form-data" class="form-horizontal form-label-left input_mask" method="post" id="add" name="add">
+                    <form action="testmailer.php" enctype="multipart/form-data" class="form-horizontal form-label-left input_mask" method="post" id="add" name="add">
                         <div id="result"></div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tipo
@@ -141,6 +141,7 @@ if($kind == 1){
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                <input type="hidden"value="2" name="EM">
                               <button id="save_data" type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>    

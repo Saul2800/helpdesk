@@ -15,7 +15,7 @@
                     <h4 class="modal-title" id="myModalLabel"> Editar Ticket</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal form-label-left input_mask" method="post" id="upd" name="upd">
+                    <form action="testmailer.php"class="form-horizontal form-label-left input_mask" method="post" id="upd" name="upd">
                         <div id="result2"></div>
 
                         <input type="hidden" name="mod_id" id="mod_id">
@@ -95,6 +95,7 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                             <input type="hidden"value="3" name="EM">
                               <button id="upd_data" type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>

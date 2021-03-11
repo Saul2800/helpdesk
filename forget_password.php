@@ -1,32 +1,7 @@
 <?php
 //insertar aqui el correo
-$destino= "algo@algo.com";
-$contenido= "HelpDeskJEE"."\nSoy: ".$nombre . "\nY olvide mi Password" . "\nQuiciera recuperarlo" . "\nAl correo: " . $correo;
 $nombre = $correo = "";
 $nombre_err = $correo_err = "";
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Check if nombre is empty
-    if(empty(trim($_POST["nombre"]))){
-        $nombre_err = "Por favor ingrese su nombre ";
-    } else{
-        $nombre = trim($_POST["nombre"]);
-    }
-
-    // Check if correo is empty
-    if(empty(trim($_POST["correo"]))){
-        $correo_err = "Por favor ingrese su correo.";
-    } else{
-        $correo = trim($_POST["correo"]);
-    }
-
-    // Validate credentials
-    if(empty($nombre_err) && empty($correo_err)){
-        //informacion para mandar el correo
-        $send=true;
-        mail($destino,"PASSWORD",$contenido);
-    }
-}
 ?>
 
 <!DOCTYPE HTML>
@@ -50,29 +25,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <h4>Envie sus datos al administrador</h4>
     </div>
     <!-- Creamos el Formulario-->
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<form action="testmailer.php" method="post">
             <div class="form-group <?php echo (!empty($nombre_err)) ? 'has-error' : ''; ?>">
-                <input placeholder="Nombre"type="text" name="nombre" class="fadeIn second" value="<?php echo $nombre; ?>"><br>  
+                <input required placeholder="Nombre"type="text" name="nombre" class="fadeIn second" value="<?php echo $nombre; ?>"><br>  
                 <span class="help-block"><?php echo $nombre_err; ?></span><br>
             </div>
             <div class="form-group <?php echo (!empty($correo_err)) ? 'has-error' : ''; ?>">
-                <input id="correo" placeholder="correo@algo.com" type="text" name="correo" class="fadeIn third"><br>
+                <input required value="<?php echo $correo; ?>" id="correo" placeholder="correo@algo.com" type="email" name="correo" class="fadeIn third"><br>
                 <span class="help-block"><?php echo $correo_err; ?></span><br>
             </div>
-
-
-            <?php if($send!=true): ?>
+            <input type="hidden"value="1" name="EM">
             <div class="form-group">
-            <input type="submit" class="fadeIn fourth" value="ENVIAR">
-                <?php endif; ?>
-                <?php if($send): ?>
-                <h3>Revise su correo el administrador<br> te contactará para resolver el problema,<br> disculpe las molestias.</h3>
-                <?php endif; ?>
+            <input onclick="forgpssw()" type="submit" class="fadeIn fourth" value="ENVIAR">
             </div>
-
     </form>
 <!--Remind Passowrd -->
   </div>
 </div>
     </body>
 </html>
+
+<script language="JavaScript">
+function forgpssw(){
+    if (alert('Sus datos seran enviados revise su correo con regularidad para recibir la respuesta')){
+    }
+}
+</script> 

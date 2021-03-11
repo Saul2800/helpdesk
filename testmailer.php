@@ -9,11 +9,36 @@ require 'vendor/phpmailer/phpmailer/src/Exception.php';
 require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 require_once "vendor/autoload.php";
+session_start();
+//SAR asignaciones: 7/03/21
+$origen=$_REQUEST["EM"];
+include "../config/config.php";//Contiene funcion que conecta a la base de datos
+
+//recuperar correo;
+if($origen=="1"){
+	$nombre=$_POST["nombre"];
+	$correo=$_POST["correo"];
+	$contenido= "< HelpDeskJEE >\n"."\nSoy: ".$nombre . "\n olvide mi Password" . "\nquisiera recuperarlo" . "\nal correo: " . $correo;
+	$destino="";					//insertar correo al cual se envia para recuperar el password
+	header("location: index.php");
+}if($origen=="2"){					//Para mandar notificacion de que se agrego un ticket
+	$titulo=$_POST["title"];
+	$proyecto=$_POST["project_id"];
+	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un ticket de titulo: ".$titulo . "\ndel proyecto: " . $proyecto;
+	$destino=$_SESSION["user_email"];	
+}if($origen=="3"){					//Para mandar notificacion de que se edito un ticket
+	$titulo=$_POST["title"];
+	$proyecto=$_POST["project_id"];
+	$contenido= "< HelpDeskJEE >\n"."\nSe edito un ticket de titulo: ".$titulo . "\n del proyecto: " . $proyecto;
+	$ticket_id=$_POST['mod_id'];			
+	$destino=$_SESSION['ticket_email'];//viene de action/updticket.php
+	
+}
 
 $mail = new PHPMailer(true);
 $mail->CharSet = 'UTF-8';
 //Enable SMTP debugging.
-$mail->SMTPDebug = 3;   //Esto se comenta para no mostrar el debug en producción                            
+//$mail->SMTPDebug = 3;   //Esto se comenta para no mostrar el debug en producción                            
 //Set PHPMailer to use SMTP.
 $mail->isSMTP();            
 //Set SMTP host name                          
@@ -32,12 +57,12 @@ $mail->Port = 587;     //El puerto   SMTP
 $mail->From = "info@helpdesk.kaabcode.com";//Correo del usuario que envia
 $mail->FromName = "Información HelpDesk"; //Nombre del usuario que envia
 
-$mail->addAddress("jose.caamal@alumnos.udg.mx", "Recepient Name");  //Correo del que recibe
+$mail->addAddress($destino, "Recepient Name");  //Correo del que recibe
 $mail->isHTML(true);
 
 $mail->Subject = "Notificación Portal HelpDesk"; //Aquí va el titulo del correo
-$mail->Body = "<i>Esto es una prueba.</i>"; //Cuerpo del correo
-$mail->AltBody = "Esto es una prueba.";
+$mail->Body = $contenido; //Cuerpo del correo
+$mail->AltBody = "HelpDesk.";
 
 /*Se imprime en caso de tener errores*/
 try {
