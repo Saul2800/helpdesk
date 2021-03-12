@@ -128,6 +128,21 @@ $( "#upd_user" ).submit(function( event ) {
             load(1);
           }
     });
+
+ //SAR 11/03/21
+ $.ajax({
+            type: "POST",
+            url: "testmailer.php",
+            data: parametros,
+             beforeSend: function(objeto){
+                $("#result_user2").html("Mensaje: Cargando...");
+              },
+            success: function(datos){
+            $("#result_user2").html(datos);
+            $('#upd_data').attr("disabled", false);
+            load(1);
+          }
+    });    
   event.preventDefault();
 })
 /*Función que obtiene los datos desde la tabla de consulta

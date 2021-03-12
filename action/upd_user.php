@@ -58,6 +58,16 @@
 		$DNI  = $_POST['mod_DNI'];
 		$KINDPROVEDOR=$_POST['mod_kindProvedor'];
 		if ($_POST['mod_kinduser']!="3"){$KINDPROVEDOR="";}
+		
+		if($kinduser==1){
+			$_SESSION["kindEU_name"]="Administrador";
+		}if($kinduser==2){
+			$_SESSION["kindEU_name"]="Usuario";
+		}if($kinduser==3){
+			$_SESSION["kindEU_name"]="Proveedor";
+		}if($kinduser==4){
+			$_SESSION["kindEU_name"]="MonitorTI";
+		}
 
 		$sql="UPDATE user SET username=\"$username\", dni=\"$DNI\", name=\"$name\", phone=\"$telefono\", email=\"$email\",is_active=$status,kind=$kinduser, kind_proveedor=\"$KINDPROVEDOR\"  WHERE id=$id";
 		$query_update = mysqli_query($con,$sql);

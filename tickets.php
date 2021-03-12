@@ -13,6 +13,7 @@
                         include("modal/new_ticket.php");
                         include("modal/upd_ticket.php");
                         include("modal/cal_ticket.php");
+                        include("modal/view_img.php");
                     ?>
                     <div class="x_panel">
                         <div class="x_title">
