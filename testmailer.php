@@ -25,14 +25,14 @@ if($origen=="1"){
 }if($origen=="2"){					//Para mandar notificacion de que se agrego un ticket
 	$titulo=$_POST["title"];
 	$proyecto=$_SESSION["project_ticket_name"];
-	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un ticket de titulo: ".$titulo .".". "\n Del proyecto: " . $proyecto;
+	$contenido= "< HelpDeskJEE >\n"."\nSe agrego un ticket de titulo: ".$titulo .".". "\n Del Proceso Electoral: " . $proyecto;
 	$destino=$_SESSION["user_email"];
 	$CCmailB=false;
 }if($origen=="3"){					//Para mandar notificacion de que se edito un ticket
 	$titulo=$_POST["title"];
 	$proyecto=$_SESSION["project_ticket_name"];
 	$NuevoEstatus=$_SESSION['tickets_estatus'];//viene de action/updticket.php
-	$contenido= "< HelpDeskJEE >\n"."\nSe edito un ticket de titulo: ".$titulo .".". "\n Del proyecto: " . $proyecto. "."."\n Su estado es: " . $NuevoEstatus;
+	$contenido= "< HelpDeskJEE >\n"."\nSe edito un ticket de titulo: ".$titulo .".". "\n Del Proceso Electoral: " . $proyecto. "."."\n Su estado es: " . $NuevoEstatus;
 	$destino=$_SESSION['ticket_email'];//viene de action/updticket.php
 	$CCmailB=false;
 }if($origen=="4"){					//Para mandar notificacion de que se agrego un usuario

@@ -26,7 +26,7 @@
                                 <li style="text-align:justify"><b>3.   </b>Dentro del apartado llenamos los campos segun sea nuestro caso y una vez hecho esto, Guardamos.</li>
                                 <img src="images/ayuda/3.jpg" style="text-align:center; margin:20px; border:#a33532 4px solid; width:80%;">
                                 <h2 style="text-align:center;">Seguimiento de Reporte</h2>
-                                <li style="text-align:justify; padding-bottom:16px;"><b>1.   </b>Dentro del mismo apartado, en la zona central, podemos buscar nuestro proyecto o ubicarlo
+                                <li style="text-align:justify; padding-bottom:16px;"><b>1.   </b>Dentro del mismo apartado, en la zona central, podemos buscar nuestro Proceso Electoral o ubicarlo
                                 en la ventana de tickets abiertos, en donde se nos mostraran de forma ordenada. </li>                
                            
                                 <div style=" padding: 16px; border:#a33532 4px solid;">

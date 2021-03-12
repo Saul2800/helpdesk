@@ -21,7 +21,7 @@
 		$sql="update project set name=\"$name\",description=\"$description\" where id=$id";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
-				$messages[] = "EL proyecto ha sido actualizado satisfactoriamente.";
+				$messages[] = "EL Proceso Electoral ha sido actualizado satisfactoriamente.";
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 			}

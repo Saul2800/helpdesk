@@ -93,7 +93,7 @@
                 <thead>
                     <tr class="headings">
                         <th class="column-title">Asunto </th>
-                        <th class="column-title">Proyecto </th>
+                        <th class="column-title">Proceso Electoral </th>
                         <th class="column-title">Prioridad </th>
                         <th class="column-title">Estado </th>
                         <th>Fecha</th>

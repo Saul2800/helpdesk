@@ -21,7 +21,7 @@ function load(page){
 
 function eliminar (id){
 	var q= $("#q").val();
-	if (confirm("Realmente deseas eliminar el proyecto?")){	
+	if (confirm("Realmente deseas eliminar el Proceso Electoral?")){	
 		$.ajax({
 		type: "GET",
 		url: "./ajax/projects.php",

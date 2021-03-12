@@ -19,7 +19,7 @@
 		$sql="insert into project (name, description) value (\"$name\",\"$description\")";
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){
-				$messages[] = "Tu proyecto ha sido ingresado satisfactoriamente.";
+				$messages[] = "Tu Proceso Electoral ha sido ingresado satisfactoriamente.";
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 			}

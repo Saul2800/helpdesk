@@ -23,7 +23,7 @@
                         <div class="tile-stats">
                           <div class="icon"><i class="fa fa-list-alt"></i></div>
                           <div class="count"><?php echo mysqli_num_rows($ProjectData) ?></div>
-                          <h3>Proyectos</h3>
+                          <h3>Proceso Electoral</h3>
                         </div>
                     </div>
                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">

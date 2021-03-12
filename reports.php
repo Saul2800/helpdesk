@@ -162,7 +162,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <th>Asunto</th>
-                        <th>Proyecto</th>
+                        <th>Proceso Electoral</th>
                         <th>Tipo</th>
                         <th>Categoria</th>
                         <th>Prioridad</th>

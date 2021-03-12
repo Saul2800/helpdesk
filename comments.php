@@ -238,7 +238,7 @@
                 <td><?php echo $kind['name']; ?></td>
                 <?php } ?>
                 <td><?php echo $comments['created_at']; ?></td>
-                <?php if($kind_user==2){?>                
+                <?php if($kind_user==2 || $kind_user==1){?>                
                 <td ><span class="pull-right">  
                         <a href="#" class='btn btn-default' title='Borrar Ticket' onclick=""><i class="glyphicon glyphicon-trash"></i> </a></span></td>
                 <?php } ?>        

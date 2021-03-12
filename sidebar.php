@@ -23,7 +23,7 @@ $allow_admin = false;
             <div class="menu_section">
                 <ul class="nav side-menu">
                     <li class="<?php if(isset($active1)){echo $active1;}?>">
-                        <a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a href="dashboard.php"><i class="fa fa-dashboard"></i> Perfil</a>
                     </li>
 
                     <li class="<?php if(isset($active2)){echo $active2;}?>">
@@ -51,7 +51,7 @@ $allow_admin = false;
                     </li>
 
                     <li class="<?php if(isset($active9)){echo $active9;}?>">
-                        <a href="comments.php"><i class="fa fa-desktop"></i> Contacto</a>
+                        <a href="comments.php"><i class="fa fa-desktop"></i> Comentarios</a>
                     </li>
 
                 </ul>
