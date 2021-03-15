@@ -15,6 +15,8 @@
         $profile_pic = $row['profile_pic'];
         $kind = $row['kind'];
         $created_at = $row['created_at'];
+        $dni = $row['dni'];
+        $telefono = $row['phone'];
   
     }
 

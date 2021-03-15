@@ -10,7 +10,34 @@
     $statuses = mysqli_query($con, "select * from status");
     $kinds = mysqli_query($con, "select * from kind");
     $comment = mysqli_query($con, "select * from comment");
-?>  
+?> 
+<?php
+
+//include "../config/config.php";//Contiene funcion que conecta a la base de datos
+
+$action = (isset($_REQUEST['action']) && $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
+if (isset($_GET['id'])){
+    $id_del=intval($_GET['id']);
+    $query=mysqli_query($con, "SELECT * from comment where id='".$id_del."'");
+    $count=mysqli_num_rows($query);
+
+        if ($delete1=mysqli_query($con,"DELETE FROM comment WHERE id='".$id_del."'")){
+?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Aviso!</strong> Datos eliminados exitosamente.
+        </div>
+    <?php 
+        }else {
+    ?>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Error!</strong> Lo siento algo ha salido mal intenta nuevamente.
+            </div>
+<?php
+        } //end else
+    } //end if
+?>
 
 
 
@@ -36,7 +63,7 @@
                             <input type="hidden" name="view" value="reports">
                             <div class="form-group">
                             <div class="col-lg-3">
-                                <div class="input-group">
+                                <div style="display:none" class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-male"></i></span>
                                     <select name="project_id" class="form-control">
                                     <option value="">PROJECTO</option>
@@ -47,9 +74,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <div class="input-group">
+                                <div style="display:none"  class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-support"></i></span>
-                                    <select name="priority_id" class="form-control">
+                                    <select  name="priority_id" class="form-control">
                                     <option value="">PRIORIDAD</option>
                                       <?php foreach($priorities as $p):?>
                                         <option value="<?php echo $p['id']; ?>" <?php if(isset($_GET["priority_id"]) && $_GET["priority_id"]==$p['id']){ echo "selected"; } ?>><?php echo $p['name']; ?></option>
@@ -69,10 +96,15 @@
                                   <input type="date" name="finish_at" value="<?php if(isset($_GET["finish_at"]) && $_GET["finish_at"]!=""){ echo $_GET["finish_at"]; } ?>" class="form-control" placeholder="Palabra clave">
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                            <div class="input-group">
+                                    <a class="botonDescargar3" href="reportcomments.php?t=pdf" target="_blank">Descargar</a>
+                            </div>   
                             </div>
-                            <div class="form-group">
-                                <div class="col-lg-3">
-                                    <div class="input-group">
+                            </div>
+                            <div style="display:none"   class="form-group">
+                                <div   class="col-lg-3">
+                                    <div  class="input-group">
                                         <span class="input-group-addon">ESTADO</span>
                                         <select name="status_id" class="form-control">
                                           <?php foreach($statuses as $p):?>
@@ -82,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
-                                    <div class="input-group">
+                                    <div style="display:none" class="input-group">
                                         <span class="input-group-addon">TIPO</span>
                                         <select name="kind_id" class="form-control">
                                           <?php foreach($kinds as $p):?>
@@ -240,7 +272,7 @@
                 <td><?php echo $comments['created_at']; ?></td>
                 <?php if($kind_user==2 || $kind_user==1){?>                
                 <td ><span class="pull-right">  
-                        <a href="#" class='btn btn-default' title='Borrar Ticket' onclick=""><i class="glyphicon glyphicon-trash"></i> </a></span></td>
+                        <a href="#" class='btn btn-default' title='Borrar Ticket' onclick="eliminarComments('<?php echo $idcomment; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
                 <?php } ?>        
                 </tr>
              <?php  
@@ -267,3 +299,4 @@
     </div><!-- /page content -->
 
 <?php include "footer.php" ?>
+<script type="text/javascript" src="js/comments.js"></script>

@@ -183,6 +183,52 @@ function obtener_datos2(id){
         $("#mod_priority_id2").val(priority_id);
         $("#mod_status_id2").val(status_id);
 }
+/*Se obtienen los datos para continuar con el proceso de guardado: Según el id del ticke y usuario */
+function obtener_datos3(id){
+        var description = $("#description"+id).val();
+        var title = $("#title"+id).val();
+        var kind_id = $("#kind_id"+id).val();
+        var project_id = $("#project_id"+id).val();
+        var category_id = $("#category_id"+id).val();
+        var priority_id = $("#priority_id"+id).val();
+        var status_id = $("#status_id"+id).val();
+        var problem_imguno = $("#problem_imguno"+id).val();//Obtengo la imagen1
+        var problem_imgdos = $("#problem_imgdos"+id).val();//Obtengo la imagen2
+        console.log(problem_imguno);
+        console.log(problem_imgdos);
+        var p = $("#mod_id3").val(id);
+        //console.log(p);
+        $("#mod_title3").val(title);
+        $("#mod_description3").val(description);
+        $("#mod_kind_id3").val(kind_id);
+        $("#mod_project_id3").val(project_id);
+        $("#mod_category_id3").val(category_id);
+        $("#mod_priority_id3").val(priority_id);
+        $("#mod_status_id3").val(status_id);
+
+        
+        const IMAGE = document.querySelector("#mod_imguno_id");
+        srcImage = "images/helpTicket/"+problem_imguno;
+        // Añade un atributo a tu tag de imagen con setAttribute("atributo-a-modificar", "valor")
+        IMAGE.setAttribute("src", srcImage);
+
+        if(problem_imgdos){
+            const IMAGE2 = document.querySelector("#mod_imgdos_id");
+            srcImage = "images/helpTicket/"+problem_imgdos;
+            // Añade un atributo a tu tag de imagen con setAttribute("atributo-a-modificar", "valor")
+            IMAGE2.setAttribute("src", srcImage);
+        }
+        else{
+            const IMAGE2 = document.querySelector("#mod_imgdos_id");
+            srcImage = "images/helpTicket/404.png";
+            // Añade un atributo a tu tag de imagen con setAttribute("atributo-a-modificar", "valor")
+            IMAGE2.setAttribute("src", srcImage);
+
+        }
+
+        //$("#mod_imguno_id").val(problem_imguno);
+        //$("#mod_imgdos_id").val(problem_imgdos);
+}
 $("#add_cal").submit(function(event) {
 $('#save_cal').attr("disabled", true);
   

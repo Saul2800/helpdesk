@@ -168,7 +168,7 @@
                         <th>Prioridad</th>
                         <th>Estado</th>
                         <th>Fecha</th>
-                        <th>Ultima Actualizacion</th>
+                        <!--<th>Ultima Actualizacion</th>-->
                     </thead>
             <?php
             $total = 0;
@@ -205,7 +205,7 @@
                 <td><?php echo $stat['name']; ?></td>
                  <?php } ?>
                 <td><?php echo $user['created_at']; ?></td>
-                <td><?php echo $user['updated_at']; ?></td>
+                
                 </tr>
              <?php  
                 

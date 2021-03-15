@@ -16,10 +16,9 @@
 
 	$name = $_POST['name'];
 	$email = $_POST['email'];
-
-
+	$phone=$_POST['telefono'];
 	if(isset($_POST['token'])){
-		$update=mysqli_query($con,"UPDATE user set name=\"$name\",email=\"$email\" where id=$id");
+		$update=mysqli_query($con,"UPDATE user set name=\"$name\",email=\"$email\",phone=\"$phone\" where id=$id");
 		if ($update) {
 			$success=sha1(md5("datos actualizados"));
             header("location: ../dashboard.php?success=$success");

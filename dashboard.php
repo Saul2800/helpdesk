@@ -84,7 +84,21 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo electrónico 
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input readonly type="text" id="last-name" name="email" class="form-control col-md-7 col-xs-12" value="<?php echo $email; ?>">
+                                            <input readonly type="text" id="email" name="email" class="form-control col-md-7 col-xs-12" value="<?php echo $email; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dni">DNI
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input readonly type="text" id="dni" name="dni" class="form-control col-md-7 col-xs-12" value="<?php echo $dni; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Teléfono
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="telefono" name="telefono" class="form-control col-md-7 col-xs-12" value="<?php echo $telefono; ?>">
                                         </div>
                                     </div>
 

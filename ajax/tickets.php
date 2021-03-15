@@ -104,7 +104,7 @@
                 <?php 
                         while ($r=mysqli_fetch_array($query)) {
                             $id=$r['id'];
-                            $_SESSION["id_ticket_TK"]=$r['id'];
+                            //$_SESSION["id_ticket_TK"]=$r['id'];
                             $created_at=date('d/m/Y', strtotime($r['created_at']));
                             $description=$r['description'];
                             $title=$r['title'];
@@ -113,6 +113,8 @@
                             $status_id=$r['status_id'];
                             $kind_id=$r['kind_id'];
                             $category_id=$r['category_id'];
+                            $problem_imguno=$r['problem_imguno'];
+                            $problem_imgdos=$r['problem_imgdos'];
 
                             $sql = mysqli_query($con, "select * from project where id=$project_id");
                             if($c=mysqli_fetch_array($sql)) {
@@ -141,7 +143,9 @@
                     <input type="hidden" value="<?php echo $category_id;?>" id="category_id<?php echo $id;?>">
                     <input type="hidden" value="<?php echo $priority_id;?>" id="priority_id<?php echo $id;?>">
                     <input type="hidden" value="<?php echo $status_id;?>" id="status_id<?php echo $id;?>">
-
+                    <!-- Obtengo las imagenes añadidas de acuerdo al id 15/03/2021 -->
+                    <input type="hidden" value="<?php echo $problem_imguno;?>" id="problem_imguno<?php echo $id;?>">
+                    <input type="hidden" value="<?php echo $problem_imgdos;?>" id="problem_imgdos<?php echo $id;?>">
 
                     <tr class="even pointer">
                         <td><?php echo $title;?></td>
@@ -151,7 +155,7 @@
                         <td><?php echo $created_at;?></td>
                         <td ><span class="pull-right">
                         <a href="#" class='btn btn-default' title='Calificar Ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#miModal"><i class="glyphicon glyphicon-star"></i></a>
-                        <a href="#" class='btn btn-default' title='Imagen Ticket' data-toggle="modal" data-target="#imgModal"><i class="glyphicon glyphicon-picture"></i></a>
+                        <a href="#" class='btn btn-default' title='Imagen Ticket' onclick="obtener_datos3('<?php echo $id;?>');" data-toggle="modal" data-target="#imgModal"><i class="glyphicon glyphicon-picture"></i></a>
                         <a href="#" class='btn btn-default' title='Editar Ticket' onclick="obtener_datos('<?php echo $id;?>');" data-toggle="modal" data-target=".bs-example-modal-lg-udp"><i class="glyphicon glyphicon-edit"></i></a> 
                         <a href="#" class='btn btn-default' title='Borrar Ticket' onclick="eliminar('<?php echo $id; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
                     </tr>
