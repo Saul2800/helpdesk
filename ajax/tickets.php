@@ -96,8 +96,8 @@
                         <th class="column-title">Proceso Electoral </th>
                         <th class="column-title">Prioridad </th>
                         <th class="column-title">Estado </th>
-                        <th>Fecha</th>
-                        <th>Asignado a:</th>
+                        <th class="column-title">Fecha</th>
+                        <th class="column-title">Asignado a:</th>
                         <th class="column-title no-link last"><span class="nobr"></span></th>
                     </tr>
                 </thead>
@@ -161,7 +161,7 @@
                         <td><?php echo $name_status;?></td>
                         <td><?php echo $created_at;?></td>
                         <td><?php echo $name_asigned;?></td>
-                        
+
                         <td ><span class="pull-right">
                         <a href="#" class='btn btn-default' title='Calificar Ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#miModal"><i class="glyphicon glyphicon-star"></i></a>
                         <a href="#" class='btn btn-default' title='Imagen Ticket' onclick="obtener_datos3('<?php echo $id;?>');" data-toggle="modal" data-target="#imgModal"><i class="glyphicon glyphicon-picture"></i></a>
@@ -172,7 +172,7 @@
                     } //en while
                 ?>
                 <tr>
-                    <td colspan=6><span class="pull-right">
+                    <td colspan=8><span class="pull-right">
                         <?php echo paginate($reload, $page, $total_pages, $adjacents);?>
                     </span></td>
                 </tr>

@@ -5,12 +5,13 @@
 ?>
     <head>
         <link href="css/estilosnuevos.css" rel="stylesheet">
-</head>
+    </head>
+
     <div class="right_col" role="main"> <!-- page content -->
         <div class="">
             <div class="page-title">
             <br>
-                <div class="row">
+                <div style="background: white" class="row">
             	    <div class="col-md-6 col-md-offset-3">
                         <div style="margin:20px">
                             <h3 style="text-align:center; padding:16px;">COMO DAR DE ALTA UN TICKET</h3>
@@ -51,4 +52,4 @@
         </div>
     </div><!-- /page content -->
 
-<?php include "footer.php" ?>
+
