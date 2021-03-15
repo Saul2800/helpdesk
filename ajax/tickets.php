@@ -97,6 +97,7 @@
                         <th class="column-title">Prioridad </th>
                         <th class="column-title">Estado </th>
                         <th>Fecha</th>
+                        <th>Asignado a:</th>
                         <th class="column-title no-link last"><span class="nobr"></span></th>
                     </tr>
                 </thead>
@@ -115,6 +116,7 @@
                             $category_id=$r['category_id'];
                             $problem_imguno=$r['problem_imguno'];
                             $problem_imgdos=$r['problem_imgdos'];
+                            $asigned_id=$r['asigned_id'];
 
                             $sql = mysqli_query($con, "select * from project where id=$project_id");
                             if($c=mysqli_fetch_array($sql)) {
@@ -129,6 +131,11 @@
                             $sql = mysqli_query($con, "select * from status where id=$status_id");
                             if($c=mysqli_fetch_array($sql)) {
                                 $name_status=$c['name'];
+                            }
+
+                            $sql = mysqli_query($con, "select * from user where id=$asigned_id");
+                            if($c=mysqli_fetch_array($sql)) {
+                                $name_asigned=$c['name'];
                             }
 
 
@@ -153,6 +160,8 @@
                         <td><?php echo $name_priority; ?></td>
                         <td><?php echo $name_status;?></td>
                         <td><?php echo $created_at;?></td>
+                        <td><?php echo $name_asigned;?></td>
+                        
                         <td ><span class="pull-right">
                         <a href="#" class='btn btn-default' title='Calificar Ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#miModal"><i class="glyphicon glyphicon-star"></i></a>
                         <a href="#" class='btn btn-default' title='Imagen Ticket' onclick="obtener_datos3('<?php echo $id;?>');" data-toggle="modal" data-target="#imgModal"><i class="glyphicon glyphicon-picture"></i></a>
