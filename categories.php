@@ -30,7 +30,7 @@
                             <div class="form-group row">
                                 <label for="q" class="col-md-2 control-label">Nombre</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" id="q" placeholder="Nombre de la categoria" onkeyup='load(1);'>
+                                    <input type="text" class="form-control" id="q" placeholder="Nombre de la categoría" onkeyup='load(1);'>
                                 </div>
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-default" onclick='load(1);'>

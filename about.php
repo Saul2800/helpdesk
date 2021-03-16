@@ -14,7 +14,7 @@
                 <div style="background: white" class="row">
             	    <div class="col-md-6 col-md-offset-3">
                         <div style="margin:20px">
-                            <h3 style="text-align:center; padding:16px;">COMO DAR DE ALTA UN TICKET</h3>
+                            <h3 style="text-align:center; padding:16px;">¿CÓMO DAR DE ALTA UN TICKET?</h3>
                             <p>¡Bienvenid@ al apartado de AYUDA!, Aqui le explicaremos cómo dar de alta un ticket
                             y como dar seguimiento a un reporte.</p>
                             <h3 style="text-align:center; padding:16px;">Pasos</h3>
@@ -33,17 +33,14 @@
                                 <div style=" padding: 16px; border:#a33532 4px solid;">
                                     <h1 style="text-align:center;">FAQ</h1>
                                     <h3 style="text-align:center;">Preguntas Frecuentes</h3>
-                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Neri?</h4></li>
-                                    <li style="text-align:justify; "><h6>seh</h6></li>
-                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Neri?</h4></li>
-                                    <li style="text-align:justify; "><h6>seh</h6></li>
-                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Neri?</h4></li>
-                                    <li style="text-align:justify; "><h6>seh</h6></li>
-                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Neri?</h4></li>
-                                    <li style="text-align:justify; "><h6>seh</h6></li>
-                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Neri?</h4></li>
-                                    <li style="text-align:justify; "><h6>seh</h6></li>
-
+                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Cómo genero un Reporte?</h4></li>
+                                    <li style="text-align:justify; "><h6>Para generar un reporte es necesario ir al apartado "Reportes" para despues seleccionar el reporte que desaeas generar y entonces presionar el botón "descargar"</h6></li>
+                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Puedo editar mi foto de perfil?</h4></li>
+                                    <li style="text-align:justify; "><h6>Si, en el apartado "dashboard" justo debajo de tu foto de perfil actual, hay un boton llamado "Cambiar Imagen de perfil" el cual permite seleccionar una imagen la cual desee para imagen de perfil </h6></li>
+                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Por qué solo puedo ver mis Tickets si soy usuario?</h4></li>
+                                    <li style="text-align:justify; "><h6>Por la privacidad del usuario, sólo el usuario y los administradores pueden ver sus propios tickets</h6></li>
+                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Que seguridad tienen mis datos personales?</h4></li>
+                                    <li style="text-align:justify; "><h6>Puede ver nuestro <a style="text-decoration: underline;" target="_blank" href="legal.php">Aviso de privacidad</a> en ésta dirección, la seguridad de sus datos están en buenas manos. </h6></li>
                                 </div>
                         </div>
                     </div>

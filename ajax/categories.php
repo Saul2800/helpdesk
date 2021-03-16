@@ -65,7 +65,7 @@
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
-                        <th class="column-title">Nombre Categoria </th>
+                        <th class="column-title">Nombre Categoría </th>
                         <th class="column-title no-link last"><span class="nobr"></span></th>
                     </tr>
                 </thead>

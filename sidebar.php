@@ -35,7 +35,7 @@ $allow_admin = false;
                     </li>
 
                     <li class="<?php if(isset($active4)){echo $active4;}?>">
-                        <a href="categories.php"><i class="fa fa-align-left"></i> Categorias</a>
+                        <a href="categories.php"><i class="fa fa-align-left"></i> Categorías</a>
                     </li>
 
                     <li class="<?php if(isset($active6)){echo $active6;}?>">
