@@ -78,7 +78,7 @@
                                         <img src="images/profiles/<?php echo $profile_pic;?>" alt="<?php echo $name;?>" class="img-circle profile_img">
                                     </div>
                                     <div class="profile_info">
-                                        <span>Bienvenido,</span>
+                                        <span>Bienvenid@,</span>
                                         <h2><?php echo $name;?></h2>
                                     </div>
                                 </div>
