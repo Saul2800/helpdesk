@@ -5,7 +5,9 @@
         $errors[] = "ID vacío";
         }else if(empty($_POST['comment'])) {
            $errors[] = "Tienes que enviar un comentario";
-        }else if (
+        }else if(empty($_POST['estrellas'])) {
+			$errors[] = "Tienes que enviar una calificación";
+		 }else if (
 			!empty($_POST['comment']) 
 		){
 

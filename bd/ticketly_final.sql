@@ -32,8 +32,6 @@ CREATE TABLE `category` (
 --
 -- Table structure for table `comment`
 --
-<<<<<<< HEAD
-=======
 
 DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -52,7 +50,6 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
->>>>>>> 54f2536c120a002a66d243ec5988d48b941985df
 --
 -- Table structure for table `kind`
 --
