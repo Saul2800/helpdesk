@@ -31,7 +31,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(80);
     // Título
-    $this->Cell(30,10,'Reporte de tickets',0,0,'C');
+    $this->Cell(120,10,'Reporte de tickets',0,0,'C');
     // Salto de línea
     $this->Ln(20);
 }
@@ -94,7 +94,7 @@ if($kind == 1){ //ADMINISTRADOR VE TODO
 }
 $resultado = mysqli_query($con,$query);
 
-$pdf = new PDF('P');
+$pdf = new PDF('L');
 //SIN MARGEN
 //$pdf = new PDF('P'); //Vertical
 //$pdf = new PDF('L'); //Horizontal
@@ -107,10 +107,10 @@ $pdf->AddPage();
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B',6);
 //$pdf->Cell(20,6,'id',1,0,'C',1);
-$pdf->Cell(20,6,utf8_decode('Título'),1,0,'C',1);
-$pdf->Cell(20,6,'ProcesoE',1,0,'C',1);
+$pdf->Cell(50,6,utf8_decode('Título'),1,0,'C',1);
+$pdf->Cell(50,6,'ProcesoE',1,0,'C',1);
 $pdf->Cell(20,6,utf8_decode('Tipo'),1,0,'C',1);
-$pdf->Cell(30,6,'Categoria',1,0,'C',1);
+$pdf->Cell(60,6,'Categoria',1,0,'C',1);
 $pdf->Cell(20,6,'Prioridad',1,0,'C',1);
 $pdf->Cell(20,6,'Estatus',1,0,'C',1);
 $pdf->Cell(30,6,'Fecha',1,0,'C',1);
@@ -122,10 +122,10 @@ while($row = $resultado->fetch_assoc())
         $pdf->SetFont('Arial','B',6);
     
         //$pdf->Cell(20,6,utf8_decode($kind),1,0,'C');
-        $pdf->Cell(20,6,utf8_decode($row['title']),1,0,'C');
-        $pdf->Cell(20,6,utf8_decode($row['project']),1,0,'C');
+        $pdf->Cell(50,6,utf8_decode($row['title']),1,0,'C');
+        $pdf->Cell(50,6,utf8_decode($row['project']),1,0,'C');
         $pdf->Cell(20,6,utf8_decode($row['tipo']),1,0,'C');
-        $pdf->Cell(30,6,utf8_decode($row['categoria']),1,0,'C');
+        $pdf->Cell(60,6,utf8_decode($row['categoria']),1,0,'C');
         $pdf->Cell(20,6,utf8_decode($row['priority']),1,0,'C');
         $pdf->Cell(20,6,utf8_decode($row['status']),1,0,'C');
         $pdf->Cell(30,6,utf8_decode($row['created_at']),1,0,'C');

@@ -16,7 +16,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre<span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <input type="text" required name="name" class="form-control" placeholder="Default Input">
+                              <input type="text" required name="name" maxlength="30" class="form-control" placeholder="Default Input">
                             </div>
                         </div>
                         <div class="form-group">

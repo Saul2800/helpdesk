@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre<span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <input type="text" id="mod_name" required name="mod_name" class="form-control" placeholder="Nombre">
+                              <input type="text" id="mod_name" maxlength="30" required name="mod_name" class="form-control" placeholder="Nombre">
                             </div>
                         </div>
                         <div class="form-group">

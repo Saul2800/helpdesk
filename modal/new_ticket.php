@@ -68,7 +68,7 @@ if($kind == 1){
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Titulo<span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <input type="text" name="title" class="form-control" placeholder="Titulo" >
+                              <input type="text" maxlength="30" name="title" class="form-control" placeholder="Titulo" >
                             </div>
                         </div>
                         <div class="form-group">

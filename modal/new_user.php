@@ -52,7 +52,7 @@ function validaKindUser(){
                             <input pattern="[0-9]{8,8}" name="DNI" required maxlength="8" type="text" class="form-control" placeholder="DNI">
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input name="TELEFONO" pattern="[0-9]{10,10}" maxlength="10" required type="text" class="form-control" placeholder="Telefono">
+                            <input name="TELEFONO" pattern="[0-9]{9,9}" maxlength="9" required type="text" class="form-control" placeholder="Telefono">
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

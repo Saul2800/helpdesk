@@ -44,7 +44,7 @@ tabindex="-1" role="dialog" aria-hidden="true"
                 cols="40"
                 rows="5"
                 placeholder="Escribe un comentario"
-                maxlength="1000"
+                maxlength="80"
                 id="comment"
                 name="comment"
               ></textarea>
