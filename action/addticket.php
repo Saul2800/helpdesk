@@ -135,7 +135,7 @@
 		var_dump($query);
 		}*/
 		/*name1 y name 2 son los nombres de las imagnes*/
-	    $conten="HelpDeskJEE"."\nSe creo el ticket ". $title ." del Proceso Electoral ".$nameProject."\nRealizado por: ".$name;
+	   
 		$sql="insert into ticket (title,description,category_id,problem_imguno,problem_imgdos,project_id,priority_id,user_id,status_id,kind_id,created_at,asigned_id) value (\"$title\",\"$description\",\"$category_id\",\"$name1\",\"$name2\",\"$project_id\",$priority_id,$user_id,$status_id,$kind_id,$created_at,\"$asignedTicket\")";
 
 		$query_new_insert = mysqli_query($con,$sql);

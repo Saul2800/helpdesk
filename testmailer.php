@@ -19,7 +19,7 @@ if($origen=="1"){
 	$nombre=$_POST["nombre"];
 	$correo=$_POST["correo"];
 	$contenido= "< HelpDeskJEE >\n"."\nSoy: ".$nombre . "\n olvide mi Password" . "\nquisiera recuperarlo" . "\nal correo: " . $correo;
-	$destino="";	//insertar correo al cual se envia para recuperar el password
+	$destino="info@helpdeskjeee.com";	//insertar correo al cual se envia para recuperar el password
 	$CCmailB=false;
 	header("location: index.php");
 }if($origen=="2"){					//Para mandar notificacion de que se agrego un ticket
@@ -76,14 +76,14 @@ $mail->Host = "smtp.hostinger.mx"; //Servidor Hostinger
 //Set this to true if SMTP host requires authentication to send email
 $mail->SMTPAuth = true;                          
 //Provide username and password     
-$mail->Username = "info@helpdesk.kaabcode.com";                 
-$mail->Password = "Kaabcode2021$"; //Aquí va la constraseña del que enviará                         
+$mail->Username = "info@helpdeskjeee.com";                 
+$mail->Password = "HelpDesk2021$"; //Aquí va la constraseña del que enviará                         
 //If SMTP requires TLS encryption then set it
 $mail->SMTPSecure = "tls";                           
 //Set TCP port to connect to
 $mail->Port = 587;     //El puerto   SMTP                           
 
-$mail->From = "info@helpdesk.kaabcode.com";//Correo del usuario que envia
+$mail->From = "info@helpdeskjeee.com";//Correo del usuario que envia
 $mail->FromName = "Información HelpDesk"; //Nombre del usuario que envia
 
 $mail->addAddress($destino, "Recepient Name");  //Correo del que recibe
