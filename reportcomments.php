@@ -30,7 +30,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(80);
     // Título
-    $this->Cell(30,10,'Reporte de comentarios',0,0,'C');
+    $this->Cell(110,10,'Reporte de comentarios',0,0,'C');
     // Salto de línea
     $this->Ln(20);
 }
@@ -93,7 +93,7 @@ $pdf->Output();
 }*/
 $resultado = mysqli_query($con,$query);
 
-$pdf = new PDF('P');
+$pdf = new PDF('L');
 //SIN MARGEN
 //$pdf = new PDF('P'); //Vertical
 //$pdf = new PDF('L'); //Horizontal
@@ -106,11 +106,11 @@ $pdf->AddPage();
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B',6);
 //$pdf->Cell(20,6,'id',1,0,'C',1);
-$pdf->Cell(10,6,utf8_decode('ID'),1,0,'C',1);
-$pdf->Cell(15,6,'Username',1,0,'C',1);
-$pdf->Cell(65,6,utf8_decode('Comentario'),1,0,'C',1);
+$pdf->Cell(15,6,utf8_decode('ID'),1,0,'C',1);
+$pdf->Cell(40,6,'Username',1,0,'C',1);
+$pdf->Cell(100,6,utf8_decode('Comentario'),1,0,'C',1);
 $pdf->Cell(15,6,'Calificacion',1,0,'C',1);
-$pdf->Cell(20,6,'Proceso electoral',1,0,'C',1);
+$pdf->Cell(40,6,'Proceso electoral',1,0,'C',1);
 $pdf->Cell(15,6,'ID ticket',1,0,'C',1);
 $pdf->Cell(20,6,'Tipo de ticket',1,0,'C',1);
 $pdf->Cell(30,6,utf8_decode('Fecha de creacion'),1,1,'C',1);
@@ -121,11 +121,11 @@ while($row = $resultado->fetch_assoc())
         $pdf->SetFont('Arial','B',6);
     
         //$pdf->Cell(20,6,utf8_decode($kind),1,0,'C');
-        $pdf->Cell(10,6,utf8_decode($row['IdComment']),1,0,'C');
-        $pdf->Cell(15,6,utf8_decode($row['Username']),1,0,'C');
-        $pdf->Cell(65,6,utf8_decode($row['comment']),1,0,'C');
+        $pdf->Cell(15,6,utf8_decode($row['IdComment']),1,0,'C');
+        $pdf->Cell(40,6,utf8_decode($row['Username']),1,0,'C');
+        $pdf->Cell(100,6,utf8_decode($row['comment']),1,0,'C');
         $pdf->Cell(15,6,utf8_decode($row['rating']),1,0,'C');
-        $pdf->Cell(20,6,utf8_decode($row['project']),1,0,'C');
+        $pdf->Cell(40,6,utf8_decode($row['project']),1,0,'C');
         $pdf->Cell(15,6,utf8_decode($row['IdTicket']),1,0,'C');
         $pdf->Cell(20,6,utf8_decode($row['kindTicket']),1,0,'C');
         $pdf->Cell(30,6,utf8_decode($row['created_at']),1,1,'C');

@@ -30,7 +30,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(80);
     // Título
-    $this->Cell(30,10,'Reporte de usuarios',0,0,'C');
+    $this->Cell(120,10,'Reporte de usuarios',0,0,'C');
     // Salto de línea
     $this->Ln(20);
 }
@@ -55,7 +55,7 @@ function Footer()
 
 $resultado = mysqli_query($con,$query);
 
-$pdf = new PDF('P');
+$pdf = new PDF('L');
 //SIN MARGEN
 //$pdf = new PDF('P'); //Vertical
 //$pdf = new PDF('L'); //Horizontal
@@ -68,13 +68,12 @@ $pdf->AddPage();
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B',6);
 //$pdf->Cell(20,6,'id',1,0,'C',1);
-$pdf->Cell(5,6,utf8_decode('ID'),1,0,'C',1);
-$pdf->Cell(15,6,'Username',1,0,'C',1);
-$pdf->Cell(10,6,utf8_decode('DNI'),1,0,'C',1);
-$pdf->Cell(40,6,'Nombre',1,0,'C',1);
+$pdf->Cell(10,6,utf8_decode('ID'),1,0,'C',1);
+$pdf->Cell(60,6,'Username',1,0,'C',1);
+$pdf->Cell(15,6,utf8_decode('DNI'),1,0,'C',1);
+$pdf->Cell(70,6,'Nombre',1,0,'C',1);
 $pdf->Cell(13,6,'Telefono',1,0,'C',1);
-$pdf->Cell(70,6,'Email',1,0,'C',1);
-$pdf->Cell(20,6,'Tipo',1,0,'C',1);
+$pdf->Cell(80,6,'Email',1,0,'C',1);
 $pdf->Cell(25,6,utf8_decode('Fecha de creacion'),1,1,'C',1);
 
 $pdf->SetFont('Arial','',10);
@@ -83,13 +82,12 @@ while($row = $resultado->fetch_assoc())
         $pdf->SetFont('Arial','B',6);
     
         //$pdf->Cell(20,6,utf8_decode($kind),1,0,'C');
-        $pdf->Cell(5,6,utf8_decode($row['IDUSER']),1,0,'C');
-        $pdf->Cell(15,6,utf8_decode($row['USERNAME']),1,0,'C');
-        $pdf->Cell(10,6,utf8_decode($row['DNI']),1,0,'C');
-        $pdf->Cell(40,6,utf8_decode($row['NAME']),1,0,'C');
+        $pdf->Cell(10,6,utf8_decode($row['IDUSER']),1,0,'C');
+        $pdf->Cell(60,6,utf8_decode($row['USERNAME']),1,0,'C');
+        $pdf->Cell(15,6,utf8_decode($row['DNI']),1,0,'C');
+        $pdf->Cell(70,6,utf8_decode($row['NAME']),1,0,'C');
         $pdf->Cell(13,6,utf8_decode($row['PHONE']),1,0,'C');
-        $pdf->Cell(70,6,utf8_decode($row['EMAIL']),1,0,'C');
-        $pdf->Cell(20,6,utf8_decode($row['KIND']),1,0,'C');
+        $pdf->Cell(80,6,utf8_decode($row['EMAIL']),1,0,'C');
         $pdf->Cell(25,6,utf8_decode($row['created_at']),1,1,'C');
 }
 

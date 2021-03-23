@@ -47,8 +47,8 @@ function validarKindUser(){
                             <span aria-hidden="true">Digite 8 numeros</span>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input name="mod_TELEFONO" id="mod_TELEFONO" pattern="[0-9]{10,10}" maxlength="10" required type="text" class="form-control" placeholder="Telefono">
-                            <span aria-hidden="true">Digite 10 numeros</span>
+                            <input name="mod_TELEFONO" id="mod_TELEFONO" pattern="[0-9]{9,9}" maxlength="9" required type="text" class="form-control" placeholder="Telefono">
+                            <span aria-hidden="true">Digite 9 numeros</span>
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

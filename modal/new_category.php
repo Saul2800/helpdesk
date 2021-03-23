@@ -16,7 +16,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <input name="name" class="form-control col-md-7 col-xs-12" required type="text" placeholder="Nombre Categoria">
+                              <input name="name"  maxlength="40" class="form-control col-md-7 col-xs-12" required type="text" placeholder="Nombre Categoria">
                             </div>
                         </div>
                         <div class="ln_solid"></div>
