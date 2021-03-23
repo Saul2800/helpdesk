@@ -140,7 +140,6 @@
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){
 				$messages[] = "Tu ticket ha sido ingresado satisfactoriamente.";
-				//mail($email,"Nuevo ticket",$conten);
 
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
