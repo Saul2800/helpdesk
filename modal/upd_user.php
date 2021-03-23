@@ -63,7 +63,7 @@ function validarKindUser(){
                             <select onchange="validarKindUser();" class="form-control" required name="mod_kinduser" id="mod_kinduser">
                                     <option value="" selected>--Tipo Usuario--</option>
                                     <option value="1" >Administrador</option>
-                                    <option value="2" >Usuario</option>
+                                    <option value="2" >Usuario General</option>
                                     <option value="3" >Proveedor</option>  
                                     <option value="4" >MonitorTI</option>  
                             </select>
