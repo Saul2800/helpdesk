@@ -49,10 +49,10 @@ function validaKindUser(){
                         </div>
                         <!-- SAR 3/03/2021-->
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input pattern="[0-9]{8,8}" name="DNI" required maxlength="8" type="text" class="form-control" placeholder="DNI">
+                            <input pattern="[0-9]{8,8}" name="DNI" required maxlength="8" title="Haz coincidir el formato de 8 digitos para el DNI." type="text" class="form-control" placeholder="DNI">
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input name="TELEFONO" pattern="[0-9]{9,9}" maxlength="9" required type="text" class="form-control" placeholder="Telefono">
+                            <input name="TELEFONO" pattern="[0-9]{10,10}" maxlength="9" title="Haz coincidir el formato de 9 digitos para el teléfono." required type="text" class="form-control" placeholder="Teléfono">
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

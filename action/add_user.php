@@ -39,7 +39,7 @@
 		else if ($_POST['kindProvedor']=="" && $_POST['kinduser']=="3"){
 			$errors[] = "Selecciona el tipo de proveedor";
 		}else if ($_POST["TELEFONO"]===""){
-			$errors[] = "Digite su DNI";
+			$errors[] = "Digite su Teléfono";
 		}else if ($_POST["DNI"]===""){
 			$errors[] = "Digite su DNI";
 		}
