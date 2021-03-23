@@ -37,8 +37,8 @@
                                     <li style="text-align:justify; "><h6>Para generar un reporte es necesario ir al apartado "Reportes" para despues seleccionar el reporte que desaeas generar y entonces presionar el botón "descargar"</h6></li>
                                     <li style="text-align:justify; padding-top:16px;"><h4>¿Puedo editar mi foto de perfil?</h4></li>
                                     <li style="text-align:justify; "><h6>Si, en el apartado "dashboard" justo debajo de tu foto de perfil actual, hay un boton llamado "Cambiar Imagen de perfil" el cual permite seleccionar una imagen la cual desee para imagen de perfil </h6></li>
-                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Por qué solo puedo ver mis Tickets si soy usuario?</h4></li>
-                                    <li style="text-align:justify; "><h6>Por la privacidad del usuario, sólo el usuario y los administradores pueden ver sus propios tickets</h6></li>
+                                    <li style="text-align:justify; padding-top:16px;"><h4>¿Por qué solo puedo ver mis Tickets si soy usuario general?</h4></li>
+                                    <li style="text-align:justify; "><h6>Por la privacidad del usuario, sólo el usuario general y los administradores pueden ver sus propios tickets</h6></li>
                                     <li style="text-align:justify; padding-top:16px;"><h4>¿Que seguridad tienen mis datos personales?</h4></li>
                                     <li style="text-align:justify; "><h6>Puede ver nuestro <a style="text-decoration: underline;" target="_blank" href="legal.php">Aviso de privacidad</a> en ésta dirección, la seguridad de sus datos están en buenas manos. </h6></li>
                                 </div>

@@ -88,7 +88,7 @@
                                 if ($kind==1){
                                     $kind_f="Administrador";
                                 }else if($kind==2){
-                                    $kind_f="Usuario";
+                                    $kind_f="Usuario General";
                                 }else if($kind==3){
                                     $kind_f="Proveedor";
                                 }else if($kind==4){
