@@ -14,7 +14,7 @@
                         include("modal/upd_ticket.php");
                         include("modal/cal_ticket.php");
                         include("modal/view_img.php");
-                        include("modal/ticket_comments.php");
+                        //include("modal/ticket_comments.php");
                     ?>
                     <div class="x_panel">
                         <div class="x_title">
@@ -175,7 +175,9 @@ function obtener_datos2(id){
         var status_id = $("#status_id"+id).val();
         //console.log(project_id);
         var p = $("#mod_id2").val(id);
-        var p = $("#mod_id6").val(id);
+        //$("#mod_id6").val(id);
+        //var varid = id;
+        //window.location.href = window.location.href + "?id=" + varid;
         //console.log(p);
         $("#mod_title2").val(title);
         $("#mod_description2").val(description);
@@ -184,6 +186,20 @@ function obtener_datos2(id){
         $("#mod_category_id2").val(category_id);
         $("#mod_priority_id2").val(priority_id);
         $("#mod_status_id2").val(status_id);
+}
+function obtener_datos5(id){
+        var pathname = window.location.pathname;
+        var ruta = getAbsolutePath();
+        $("#mod_id6").val(id);
+        var varid = id;
+        //window.location.href = window.location.href + "?id=" + varid;
+        window.open(ruta+ "comentarbyticket.php" + "?id=" + varid, '_blank');
+       
+}
+function getAbsolutePath() {
+        var loc = window.location;
+        var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+        return loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
 }
 /*Se obtienen los datos para continuar con el proceso de guardado: Según el id del ticke y usuario */
 function obtener_datos3(id){

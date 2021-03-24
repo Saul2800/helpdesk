@@ -166,7 +166,7 @@
                         <!--modal calificacion-->    
                         <a href="#" class='btn btn-default' title='Calificar Ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#miModal"><i class="glyphicon glyphicon-star"></i></a>
                         <!--modal comentarios-->    
-                        <a href="#" class='btn btn-default' title='Comentarios del ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#ticket_comments"><i class="glyphicon glyphicon-comment"></i></a>
+                        <a href="#" class='btn btn-default' title='Comentarios del ticket' onclick="obtener_datos5('<?php echo $id;?>');" data-toggle="modal" data-target="#ticket_comments"><i class="glyphicon glyphicon-comment"></i></a>
                         <!--modal comentarios-->  
                         <a href="#" class='btn btn-default' title='Imagen Ticket' onclick="obtener_datos3('<?php echo $id;?>');" data-toggle="modal" data-target="#imgModal"><i class="glyphicon glyphicon-picture"></i></a>
                         <!--modal editar-->    
@@ -178,7 +178,7 @@
                     } //en while
                 ?>
                 <tr>
-                    <td colspan=8><span class="pull-right">
+                    <td colspan=9><span class="pull-right">
                         <?php echo paginate($reload, $page, $total_pages, $adjacents);?>
                     </span></td>
                 </tr>
