@@ -163,9 +163,15 @@
                         <td><?php echo $name_asigned;?></td>
 
                         <td ><span class="pull-right">
+                        <!--modal calificacion-->    
                         <a href="#" class='btn btn-default' title='Calificar Ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#miModal"><i class="glyphicon glyphicon-star"></i></a>
+                        <!--modal comentarios-->    
+                        <a href="#" class='btn btn-default' title='Comentarios del ticket' onclick="obtener_datos2('<?php echo $id;?>');" data-toggle="modal" data-target="#ticket_comments"><i class="glyphicon glyphicon-comment"></i></a>
+                        <!--modal comentarios-->  
                         <a href="#" class='btn btn-default' title='Imagen Ticket' onclick="obtener_datos3('<?php echo $id;?>');" data-toggle="modal" data-target="#imgModal"><i class="glyphicon glyphicon-picture"></i></a>
+                        <!--modal editar-->    
                         <a href="#" class='btn btn-default' title='Editar Ticket' onclick="obtener_datos('<?php echo $id;?>');" data-toggle="modal" data-target=".bs-example-modal-lg-udp"><i class="glyphicon glyphicon-edit"></i></a> 
+                        <!--modal borrar-->    
                         <a href="#" class='btn btn-default' title='Borrar Ticket' onclick="eliminar('<?php echo $id; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
                     </tr>
                 <?php

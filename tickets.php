@@ -14,6 +14,7 @@
                         include("modal/upd_ticket.php");
                         include("modal/cal_ticket.php");
                         include("modal/view_img.php");
+                        include("modal/ticket_comments.php");
                     ?>
                     <div class="x_panel">
                         <div class="x_title">
@@ -174,6 +175,7 @@ function obtener_datos2(id){
         var status_id = $("#status_id"+id).val();
         //console.log(project_id);
         var p = $("#mod_id2").val(id);
+        var p = $("#mod_id6").val(id);
         //console.log(p);
         $("#mod_title2").val(title);
         $("#mod_description2").val(description);
