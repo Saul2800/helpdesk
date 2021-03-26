@@ -1,5 +1,5 @@
 <?php
-    $title ="Tickets | ";
+    $title ="Ticket | ";
     //include "head.php";
     //include "sidebar.php";
     session_start();
@@ -8,11 +8,11 @@
         header("location: index.php");
     }
     $id_ticket=$_GET["id"];
-    $query=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket");
-    while ($row=mysqli_fetch_array($query)) {
-        $idcommentxticket=$row['id'];
-        echo $idcommentxticket;
+    $query0=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket");
+    while ($row=mysqli_fetch_array($query0)) {
+     $idcommentxticket=$row['id_ticket'];   
     }
+    $query=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket order by created_at desc");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?php echo $title; ?> </title>
+        <title><?php echo $title; echo $idcommentxticket; ?> </title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,85 +45,38 @@
 
     </head>
 <body>
+    <aside>
+        <h1>hello</h1>
+    </aside>
 <!-- Contenedor Principal -->
 <div class="comments-container">
-		<h1>Comentarios de </h1>
+		<h1>Comentarios del ticket <?php echo $idcommentxticket; ?></h1>
+<?php foreach ($query as $comments ) { 
+        $idUserComments=$comments['id_user'];
+
+    $query2=mysqli_query($con,"SELECT * from user where id=$idUserComments");
+    foreach ($query2 as $users ) { ?>
 
 		<ul id="comments-list" class="comments-list">
 			<li>
 				<div class="comment-main-level">
-					<!-- Avatar -->
-					<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+					<!-- Avatar -->					
+					<div class="comment-avatar"><img src="images/profiles/<?php echo $users["profile_pic"]; ?>" alt="perfil"></div>
 					<!-- Contenedor del Comentario -->
 					<div class="comment-box">
 						<div class="comment-head">
-							<h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
-							<span>hace 20 minutos</span>
-							<i class="fa fa-reply"></i>
-							<i class="fa fa-heart"></i>
+							<h6 class="comment-name by-author"><a><?php echo $users['name'];?></a></h6>
+							<span><?php echo $comments['created_at'];?></span>
 						</div>
 						<div class="comment-content">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-						</div>
-					</div>
-				</div>
-				<!-- Respuestas de los comentarios -->
-				<ul class="comments-list reply-list">
-					<li>
-						<!-- Avatar -->
-						<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""></div>
-						<!-- Contenedor del Comentario -->
-						<div class="comment-box">
-							<div class="comment-head">
-								<h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
-								<span>hace 10 minutos</span>
-								<i class="fa fa-reply"></i>
-								<i class="fa fa-heart"></i>
-							</div>
-							<div class="comment-content">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<!-- Avatar -->
-						<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-						<!-- Contenedor del Comentario -->
-						<div class="comment-box">
-							<div class="comment-head">
-								<h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
-								<span>hace 10 minutos</span>
-								<i class="fa fa-reply"></i>
-								<i class="fa fa-heart"></i>
-							</div>
-							<div class="comment-content">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-							</div>
-						</div>
-					</li>
-				</ul>
-			</li>
-
-			<li>
-				<div class="comment-main-level">
-					<!-- Avatar -->
-					<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""></div>
-					<!-- Contenedor del Comentario -->
-					<div class="comment-box">
-						<div class="comment-head">
-							<h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
-							<span>hace 10 minutos</span>
-							<i class="fa fa-reply"></i>
-							<i class="fa fa-heart"></i>
-						</div>
-						<div class="comment-content">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+							<?php echo $comments['comment'];?>
 						</div>
 					</div>
 				</div>
 			</li>
 		</ul>
+        <?php } ?>
+<?php } ?>
 	</div>
 </body>
 </html>
