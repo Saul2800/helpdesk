@@ -8,9 +8,10 @@
         header("location: index.php");
     }
     $id_ticket=$_GET["id"];
+    $numerodecomentarios=0;
     $query0=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket");
     while ($row=mysqli_fetch_array($query0)) {
-     $idcommentxticket=$row['id_ticket'];   
+     $idcommentxticket=$row['id_ticket'];  
     }
     $query=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket order by created_at desc");
 ?>
@@ -45,14 +46,15 @@
 
     </head>
 <body>
-    <aside>
-        <h1>hello</h1>
-    </aside>
+<div class="col-md-6" style="width:900px; height:700px; overflow-y: scroll;">
+<div class="form-group">   
 <!-- Contenedor Principal -->
 <div class="comments-container">
 		<h1>Comentarios del ticket <?php echo $idcommentxticket; ?></h1>
 <?php foreach ($query as $comments ) { 
         $idUserComments=$comments['id_user'];
+        $ratingtotal=($ratingtotal+$comments['rating']);
+        $numerodecomentarios++;
 
     $query2=mysqli_query($con,"SELECT * from user where id=$idUserComments");
     foreach ($query2 as $users ) { ?>
@@ -75,8 +77,28 @@
 				</div>
 			</li>
 		</ul>
-        <?php } ?>
-<?php } ?>
+        <?php } }
+
+        $ratingpromedio=$ratingtotal/$numerodecomentarios;
+        if($ratingpromedio>=5){
+            $ratingFace="face5.jpeg";
+        }if($ratingpromedio>=4 && $ratingpromedio < 5){
+            $ratingFace="face4.jpeg";
+        }if ($ratingpromedio>=3 && $ratingpromedio < 4){
+            $ratingFace="face3.jpeg";
+        }if ($ratingpromedio>=2 && $ratingpromedio < 3){
+            $ratingFace="face2.jpeg";
+        }if ($ratingpromedio>=0 && $ratingpromedio < 2){
+            $ratingFace="face1.jpeg";
+        }
+ ?>
 	</div>
+</div>
+</div>
+<div class="form-group">
+    <img align="center" width="28.5%" src="images/<?php echo $ratingFace; ?>" alt="ratingface">
+    <h1 align="center">Calificacion promedio del ticket</h1>
+    <h1 align="center">|<?php echo $ratingpromedio ?>|</h1>
+</div>
 </body>
 </html>
