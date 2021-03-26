@@ -63,7 +63,7 @@ input[type="radio"]:checked ~ label {
 
 /**
  * Oscuro: #283035
- * Azul: #03658c
+ * Azul: #a33532
  * Detalle: #c7cacb
  * Fondo: #dee1e3
  ----------------------------------*/
@@ -76,7 +76,7 @@ input[type="radio"]:checked ~ label {
 }
 
 a {
-  color: #03658c;
+  color: #a33532;
   text-decoration: none;
 }
 
@@ -264,7 +264,7 @@ body {
 }
 
 .comment-box .comment-head i:hover {
- color: #03658c;
+ color: #a33532;
 }
 
 .comment-box .comment-name {
@@ -280,11 +280,11 @@ body {
 }
 
 .comment-box .comment-head span {
- float: left;
- color: #999;
- font-size: 13px;
- position: relative;
- top: 1px;
+float: right;
+color: #d2791b;
+font-size: 15px;
+position: relative;
+top: 5px;
 }
 
 .comment-box .comment-content {
@@ -297,10 +297,9 @@ body {
  border-radius: 0 0 4px 4px;
 }
 
-.comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #03658c;}
+.comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #a33532;}
 .comment-box .comment-name.by-author:after {
- content: 'autor';
- background: #03658c;
+ background: #a33532;
  color: #FFF;
  font-size: 12px;
  padding: 3px 5px;

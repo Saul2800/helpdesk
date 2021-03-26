@@ -11,8 +11,13 @@
     $numerodecomentarios=0;
     $query0=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket");
     while ($row=mysqli_fetch_array($query0)) {
-     $idcommentxticket=$row['id_ticket'];  
+     $idcommentxticket=$row['id_ticket'];
+     $commentario=$row['comment'];  
     }
+    if($commentario==""){
+    echo '<script>  alert("No hay comentarios para mostrar"); window.location="tickets.php"; </script>
+';}
+
     $query=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket order by created_at desc");
 ?>
 <!DOCTYPE html>
@@ -23,7 +28,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?php echo $title; echo $idcommentxticket; ?> </title>
+        <title><?php echo $title; echo $id_ticket; ?> </title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +55,7 @@
 <div class="form-group">   
 <!-- Contenedor Principal -->
 <div class="comments-container">
-		<h1>Comentarios del ticket <?php echo $idcommentxticket; ?></h1>
+		<h1 align="center">Comentarios del ticket <?php echo $id_ticket; ?></h1>
 <?php foreach ($query as $comments ) { 
         $idUserComments=$comments['id_user'];
         $ratingtotal=($ratingtotal+$comments['rating']);
@@ -98,7 +103,7 @@
 <div class="form-group">
     <img align="center" width="28.5%" src="images/<?php echo $ratingFace; ?>" alt="ratingface">
     <h1 align="center">Calificacion promedio del ticket</h1>
-    <h1 align="center">|<?php echo $ratingpromedio ?>|</h1>
+    <h1 align="center"><?php echo(round($ratingpromedio,0,PHP_ROUND_HALF_DOWN));?></h1>
 </div>
 </body>
 </html>
