@@ -1,9 +1,10 @@
 <?php
     $title ="Ticket | ";
-    //include "head.php";
-    //include "sidebar.php";
-    session_start();
-    include "config/config.php";
+    include "head.php";
+    include "sidebar.php";
+    //session_start();
+    //include "config/config.php";
+    $ratingtotal = 0;
     if (!isset($_SESSION['user_id'])&& $_SESSION['user_id']==null) {
         header("location: index.php");
     }
@@ -20,37 +21,7 @@
 
     $query=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket order by created_at desc");
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <link rel ="icon" type="icon/png" href="images/iconoPestaña.png" > <!--Icono de pestaña-->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?php echo $title; echo $id_ticket; ?> </title>
-
-        <!-- Bootstrap -->
-        <link href="css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- NProgress -->
-        <link href="css/nprogress/nprogress.css" rel="stylesheet">
-          <!-- iCheck -->
-       <link href="css/iCheck/skins/flat/green.css" rel="stylesheet">
-        <!-- bootstrap-daterangepicker -->
-        <link href="css/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-        <!-- Custom Theme Style -->
-        <link href="css/custom.min.css" rel="stylesheet">
-
-        <!-- MICSS button[type="file"] -->
-        <link rel="stylesheet" href="css/micss.css">
-        <!-- Se importan los css personalizados -->
-        <link href="css/estilosnuevos.css" rel="stylesheet">
-
-    </head>
-<body>
+<div class="right_col" role="main"><!-- page content -->
 <div class="col-md-6" style="width:900px; height:700px; overflow-y: scroll;">
 <div class="form-group">   
 <!-- Contenedor Principal -->
@@ -58,7 +29,8 @@
 		<h1 align="center">Comentarios del ticket <?php echo $id_ticket; ?></h1>
 <?php foreach ($query as $comments ) { 
         $idUserComments=$comments['id_user'];
-        $ratingtotal=($ratingtotal+$comments['rating']);
+        $ratingtotal=((int)$ratingtotal+(int)$comments['rating']);
+        //var_dump($ratingtotal);
         $numerodecomentarios++;
 
     $query2=mysqli_query($con,"SELECT * from user where id=$idUserComments");
@@ -85,25 +57,36 @@
         <?php } }
 
         $ratingpromedio=$ratingtotal/$numerodecomentarios;
+        $ratingpromedio = round($ratingpromedio,0,PHP_ROUND_HALF_DOWN);
         if($ratingpromedio>=5){
-            $ratingFace="face5.jpeg";
+            $ratingFace="face5.PNG";
         }if($ratingpromedio>=4 && $ratingpromedio < 5){
-            $ratingFace="face4.jpeg";
+            $ratingFace="face4.PNG";
         }if ($ratingpromedio>=3 && $ratingpromedio < 4){
-            $ratingFace="face3.jpeg";
+            $ratingFace="face3.PNG";
         }if ($ratingpromedio>=2 && $ratingpromedio < 3){
-            $ratingFace="face2.jpeg";
+            $ratingFace="face2.PNG";
         }if ($ratingpromedio>=0 && $ratingpromedio < 2){
-            $ratingFace="face1.jpeg";
+            $ratingFace="face1.PNG";
         }
  ?>
 	</div>
 </div>
 </div>
-<div class="form-group">
-    <img align="center" width="28.5%" src="images/<?php echo $ratingFace; ?>" alt="ratingface">
-    <h1 align="center">Calificacion promedio del ticket</h1>
-    <h1 align="center"><?php echo(round($ratingpromedio,0,PHP_ROUND_HALF_DOWN));?></h1>
+<div class="row-md-8" >
+    <img align="right" width="28.5%" src="images/<?php echo $ratingFace; ?>" alt="ratingface">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3 align="center">Calificación general de satisfacción</h3>
+    <h3 align="center"><?php echo $ratingpromedio ?></h3>
 </div>
-</body>
-</html>
+</div><!-- /page content -->
+<?php include "footer.php" ?>
