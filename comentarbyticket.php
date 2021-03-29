@@ -10,6 +10,10 @@
     }
     $id_ticket=$_GET["id"];
     $numerodecomentarios=0;
+    $query01=mysqli_query($con,"SELECT * from ticket where id=$id_ticket");
+    while ($row=mysqli_fetch_array($query01)) {
+     $ticketStatusComments=$row['status_id'];
+    }
     $query0=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket");
     while ($row=mysqli_fetch_array($query0)) {
      $idcommentxticket=$row['id_ticket'];
@@ -22,7 +26,7 @@
     $query=mysqli_query($con,"SELECT * from comment where id_ticket=$id_ticket order by created_at desc");
 ?>
 <div class="right_col" role="main"><!-- page content -->
-<div class="col-md-6" style="width:900px; height:700px; overflow-y: scroll;">
+<div class="col-md-6" style="width:800px; height:550px; overflow-y: scroll;">
 <div class="form-group">   
 <!-- Contenedor Principal -->
 <div class="comments-container">
@@ -69,12 +73,28 @@
         }if ($ratingpromedio>=0 && $ratingpromedio < 2){
             $ratingFace="face1.PNG";
         }
+
+        if($ticketStatusComments==1){
+            $ticketStatus="Pendiente";
+        }
+
+        if($ticketStatusComments==2){
+            $ticketStatus="En Desarrollo";
+        }
+
+        if($ticketStatusComments==3){
+            $ticketStatus="Terminado";
+        }
+
+        if($ticketStatusComments==4){
+            $ticketStatus="Cancelado";
+        }
  ?>
 	</div>
 </div>
 </div>
 <div class="row-md-8" >
-    <img align="right" width="28.5%" src="images/<?php echo $ratingFace; ?>" alt="ratingface">
+    <img align="right" width="19.5%" src="images/<?php echo $ratingFace; ?>" alt="ratingface">
     <br>
     <br>
     <br>
@@ -87,6 +107,9 @@
     <br>
     <h3 align="center">Calificación general de satisfacción</h3>
     <h3 align="center"><?php echo $ratingpromedio ?></h3>
+    <br><br>
+    <h3 align="center">Estatus del ticket: <?php echo $ticketStatus ?> </h3>
+
 </div>
 </div><!-- /page content -->
 <?php include "footer.php" ?>
